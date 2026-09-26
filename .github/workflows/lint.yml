@@ -28,7 +28,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-python: '3.x'
+        python-version: '3.x'
         cache: 'pip'
 
     - name: Install requirements
@@ -37,7 +37,7 @@ jobs:
     - name: Check if Notebooks are Clean
       run: |
         # Strip all notebooks in-place
-        nbstripout *.ipynb **/*.ipynb
+        git ls-files -z '*.ipynb' | xargs -0 --no-run-if-empty nbstripout
 
         # Check if git detects any modifications
         if [ -n "$(git status --porcelain)" ]; then
