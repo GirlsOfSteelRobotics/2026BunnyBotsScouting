@@ -35,8 +35,10 @@ SCOUTED_COLUMNS = [
 
 SCRIPT_DIRECTORY = pathlib.Path(__file__).resolve().parent
 
+
 def load_scouted_data():
-    scouted_data = pd.read_csv(SCRIPT_DIRECTORY / f'data/{EVENT_KEY}/scouted_data.tsv', sep='\t')
+    scouted_data = pd.read_csv(
+        SCRIPT_DIRECTORY / f"data/{EVENT_KEY}/scouted_data.tsv", sep="\t"
+    )
 
     return scouted_data
-    
