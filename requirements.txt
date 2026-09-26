@@ -1,0 +1,7 @@
+shiny
+pandas
+plotly
+numpy
+utils
+requests
+shinywidgets

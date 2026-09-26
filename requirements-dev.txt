@@ -1,0 +1,5 @@
+statbotics==3.0.0
+requests==2.32.3
+jupyterlab
+black
+nbstripout

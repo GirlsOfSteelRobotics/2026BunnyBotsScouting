@@ -1,0 +1,49 @@
+name: Lint
+
+on:
+  push:
+
+jobs:
+  black:
+    name: Run Black
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Run Black
+        uses: psf/black@stable
+        with:
+          options: "--check --diff"
+          src: "."
+
+  check-notebooks:
+    name: Check Jupyter Notebooks Clear
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-python: '3.x'
+        cache: 'pip'
+
+    - name: Install requirements
+      run: pip install -r requirements-dev.txt
+
+    - name: Check if Notebooks are Clean
+      run: |
+        # Strip all notebooks in-place
+        nbstripout *.ipynb **/*.ipynb
+
+        # Check if git detects any modifications
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "❌ Error: One or more Jupyter Notebooks contained cell outputs!"
+          git status --porcelain
+          exit 1
+        else
+          echo "✅ All notebooks are perfectly clean."
+        fi
