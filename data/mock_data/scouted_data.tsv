@@ -1,169 +1,169 @@
-Scouter Initials	Match Number	Team and Robot	No Show	Auto Pantry Carrot Scoring	Tele Pantry Carrot Scoring
-abc	1	340	True	0	4
-abc	1	3504	True	2	3
-abc	1	3015	False	0	21
-abc	1	2641	False	2	12
-abc	1	3990	False	1	21
-abc	1	4028	False	1	22
-abc	2	340	False	0	1
-abc	2	3504	False	0	11
-abc	2	3015	False	1	22
-abc	2	2641	False	0	23
-abc	2	3990	False	1	9
-abc	2	4028	False	2	2
-abc	1	3484	False	0	14
-abc	1	63	False	2	4
-abc	1	9406	False	0	1
-abc	1	3504	False	0	10
-abc	1	4467	False	1	12
-abc	1	117	False	0	14
-abc	10	63	False	2	25
-abc	10	9415	False	2	6
-abc	10	8705	True	2	15
-abc	10	3173	False	1	6
-abc	10	7274	False	0	15
-abc	10	2095	False	1	23
-abc	11	2010	False	0	18
-abc	11	340	False	1	7
-abc	11	709	False	2	6
-abc	11	9022	False	2	21
-abc	11	1708	False	0	7
-abc	11	3260	False	1	8
-abc	12	2614	False	0	3
-abc	12	10300	False	2	2
-abc	12	6032	False	0	24
-abc	12	1317	False	2	7
-abc	12	4269	False	2	20
-abc	12	5740	False	0	11
-abc	13	3484	False	2	25
-abc	13	5667	False	1	25
-abc	13	1601	False	1	24
-abc	13	10515	False	0	13
-abc	13	9642	False	0	4
-abc	13	4991	False	1	24
-abc	14	1816	False	2	12
-abc	14	451	False	2	12
-abc	14	10516	False	0	18
-abc	14	4027	False	1	3
-abc	14	4050	False	2	7
-abc	14	3504	False	1	8
-abc	15	3015	False	0	5
-abc	15	2656	True	1	24
-abc	15	4028	False	2	2
-abc	15	117	False	2	5
-abc	15	3990	False	2	21
-abc	15	1511	False	2	17
-abc	16	10582	False	2	21
-abc	16	2641	False	0	3
-abc	16	11456	False	1	1
-abc	16	10517	False	1	4
-abc	16	10512	False	2	10
-abc	16	7515	False	1	24
-abc	17	5740	False	2	13
-abc	17	10513	False	1	12
-abc	17	4150	True	0	22
-abc	17	3324	False	2	24
-abc	17	4467	False	0	22
-abc	17	2234	False	0	6
-abc	18	4991	False	0	0
-abc	18	9415	False	2	4
-abc	18	5667	False	0	5
-abc	18	63	False	2	24
-abc	18	9475	False	2	5
-abc	18	3260	False	2	23
-abc	19	9406	False	2	20
-abc	19	4027	False	0	25
-abc	19	9022	False	0	12
-abc	19	1601	False	1	20
-abc	19	6032	True	1	4
-abc	19	7274	False	2	1
-abc	2	3260	False	0	9
-abc	2	9653	True	1	23
-abc	2	1816	False	0	9
-abc	2	8705	False	1	2
-abc	2	6032	True	1	10
-abc	2	4150	False	0	9
-abc	20	3015	False	0	6
-abc	20	1317	False	2	21
-abc	20	10515	False	0	8
-abc	20	1816	False	0	19
-abc	20	4028	False	2	18
-abc	20	709	False	1	24
-abc	21	2095	False	2	6
-abc	21	10517	False	0	13
-abc	21	2614	False	0	20
-abc	21	3504	False	2	13
-abc	21	340	False	0	5
-abc	21	3990	False	1	8
-abc	22	10512	False	2	17
-abc	22	10516	False	0	5
-abc	22	2641	True	1	7
-abc	22	10300	False	2	15
-abc	22	8705	False	1	15
-abc	22	10513	False	2	18
-abc	23	10582	False	2	23
-abc	23	4150	False	2	22
-abc	23	2010	False	1	18
-abc	23	3484	False	1	15
-abc	23	117	False	1	5
-abc	23	4269	False	1	9
-abc	24	4050	False	1	8
-abc	24	11456	False	1	13
-abc	24	2656	False	1	23
-abc	24	4467	False	1	9
-abc	24	3173	False	2	12
-abc	24	9653	False	1	11
-abc	25	2234	False	0	2
-abc	25	1511	False	0	22
-abc	25	1708	False	2	4
-abc	25	7515	False	1	13
-abc	25	9642	False	2	22
-abc	25	451	False	2	17
-abc	26	709	False	0	6
-abc	26	2614	False	1	18
-abc	26	5667	False	2	24
-abc	26	1816	False	1	19
-abc	26	9406	False	2	5
-abc	26	1601	False	1	24
-abc	27	3324	False	2	19
-abc	27	3504	False	0	24
-abc	27	3015	False	1	21
-abc	27	1317	False	2	19
-abc	27	7274	False	1	22
-abc	27	2641	False	0	25
-abc	28	9475	False	1	0
-abc	28	3484	False	0	18
-abc	28	4027	False	0	18
-abc	28	340	False	2	5
-abc	28	63	False	1	19
-abc	28	10513	False	2	17
-abc	29	4269	False	1	11
-abc	29	10512	False	0	24
-abc	29	4050	False	2	2
-abc	29	3990	False	1	10
-abc	29	3260	False	1	18
-abc	29	2656	False	2	3
-abc	3	4269	False	0	24
-abc	3	7515	False	2	3
-abc	3	709	False	1	16
-abc	3	2095	False	2	22
-abc	3	3324	False	2	5
-abc	3	9415	False	1	14
-abc	30	4991	False	0	15
-abc	30	10517	False	0	10
-abc	30	5740	False	2	20
-abc	30	9415	False	0	2
-abc	30	9022	False	2	18
-abc	30	1511	False	2	1
-abc	31	7515	False	0	1
-abc	31	117	False	2	23
-abc	31	3173	False	2	15
-abc	31	2234	False	1	11
-abc	31	10300	False	2	9
-abc	31	9653	True	1	4
-abc	32	451	False	2	3
-abc	32	10582	False	0	2
-abc	32	1708	False	2	0
-abc	32	11456	False	1	1
-abc	32	8705	False	0	3
-abc	32	10515	False	0	15
+Scouter Initials	Match Number	Team and Robot	No Show	Auto Pantry Carrot Scoring	Auto Pantry Carrot Cake Scoring	Auto Oven Carrot Scoring	Auto Oven Carrot Cake Scoring	Auto Cross Kitchen Line	Auto Robot Stuck or Astop in Auto?	Tele Pantry Carrot Scoring	Tele Pantry Carrot Cake Scoring	Tele Oven Carrot Scoring	Tele Oven Carrot Cake Scoring	Harvest Haul Carrots	Harvest Haul Carrot Cakes
+abc	1	340	True	0	0	3	0	True	False	21	7	28	6	0	0
+abc	1	3504	False	0	1	5	1	True	False	0	5	13	2	1	0
+abc	1	3015	False	2	2	10	1	True	False	2	1	14	1	2	0
+abc	1	2641	False	0	0	4	0	True	False	12	6	6	7	1	0
+abc	1	3990	True	2	1	7	1	True	False	7	7	17	5	2	0
+abc	1	4028	False	2	1	5	0	True	False	25	1	30	3	2	1
+abc	2	340	False	0	0	1	0	True	False	24	0	22	9	0	1
+abc	2	3504	False	2	1	6	0	True	False	19	4	9	6	1	1
+abc	2	3015	False	2	1	0	1	True	False	4	6	24	5	2	1
+abc	2	2641	False	2	1	9	0	True	False	3	5	25	8	0	0
+abc	2	3990	False	0	0	2	1	True	False	21	1	10	0	2	0
+abc	2	4028	False	2	2	9	0	True	False	17	3	3	2	1	1
+abc	1	3484	True	0	0	0	1	True	False	10	2	15	6	1	1
+abc	1	63	False	1	1	3	0	True	False	7	3	17	3	0	0
+abc	1	9406	False	2	0	2	1	True	False	11	5	18	0	2	0
+abc	1	3504	False	2	2	7	1	True	False	14	3	12	7	1	0
+abc	1	4467	False	1	2	0	0	True	False	23	7	27	0	1	1
+abc	1	117	False	1	0	7	1	False	False	20	1	28	3	1	0
+abc	10	63	False	1	0	6	0	True	False	18	0	27	7	1	0
+abc	10	9415	False	0	1	1	0	True	False	16	6	1	9	0	0
+abc	10	8705	False	1	1	1	0	True	False	19	4	7	4	0	1
+abc	10	3173	False	1	1	1	1	True	False	5	5	9	9	1	1
+abc	10	7274	False	1	1	2	0	True	False	11	4	30	7	1	0
+abc	10	2095	True	1	2	9	1	True	True	9	7	6	8	1	0
+abc	11	2010	False	1	2	0	0	True	False	12	2	4	9	1	1
+abc	11	340	False	2	2	1	0	True	False	2	7	18	8	2	1
+abc	11	709	False	2	2	0	0	True	False	11	1	5	7	1	1
+abc	11	9022	False	2	2	1	1	True	False	25	5	2	7	0	0
+abc	11	1708	False	2	1	10	0	True	False	5	0	11	5	2	0
+abc	11	3260	False	1	0	5	0	True	True	2	5	10	5	2	1
+abc	12	2614	False	0	0	4	0	True	False	17	1	7	9	1	0
+abc	12	10300	False	2	1	10	0	True	False	7	0	15	7	1	0
+abc	12	6032	False	1	2	10	0	True	False	22	4	7	8	0	0
+abc	12	1317	False	0	0	7	1	True	False	12	5	16	4	2	1
+abc	12	4269	True	1	0	8	0	True	False	2	0	26	7	0	0
+abc	12	5740	False	1	0	7	0	True	False	17	4	0	3	2	0
+abc	13	3484	False	1	0	3	0	True	False	8	0	19	6	0	0
+abc	13	5667	False	1	2	3	1	True	False	21	6	3	0	1	0
+abc	13	1601	False	1	1	7	1	True	False	16	7	10	1	1	1
+abc	13	10515	False	2	0	10	1	True	False	20	4	30	7	1	1
+abc	13	9642	False	1	0	6	0	True	False	22	6	29	7	1	1
+abc	13	4991	False	1	1	3	0	True	False	20	0	8	1	0	0
+abc	14	1816	False	2	0	7	1	True	False	11	6	20	5	1	0
+abc	14	451	False	2	0	8	0	True	False	6	6	20	6	1	1
+abc	14	10516	False	2	1	9	0	True	True	13	1	7	6	0	0
+abc	14	4027	False	0	2	9	0	True	False	19	6	28	9	2	0
+abc	14	4050	False	0	2	1	1	True	False	23	6	14	9	1	0
+abc	14	3504	False	2	1	0	0	True	False	5	4	21	10	2	1
+abc	15	3015	False	0	1	7	1	False	False	23	3	9	10	0	1
+abc	15	2656	False	0	1	9	1	True	False	3	3	17	4	1	0
+abc	15	4028	False	2	2	2	0	True	False	1	6	3	4	2	0
+abc	15	117	False	2	1	1	0	True	False	2	2	14	1	2	1
+abc	15	3990	True	1	0	1	0	True	False	25	6	12	1	2	1
+abc	15	1511	False	0	2	10	1	True	False	20	0	9	8	2	1
+abc	16	10582	False	0	1	3	0	True	False	9	5	6	0	1	0
+abc	16	2641	False	0	2	1	0	True	False	9	0	3	6	2	1
+abc	16	11456	False	1	1	7	0	True	False	4	2	3	9	2	1
+abc	16	10517	False	1	0	5	1	True	False	1	6	5	4	1	1
+abc	16	10512	True	1	1	0	0	True	True	14	2	14	9	2	1
+abc	16	7515	False	0	0	1	0	True	False	12	2	26	5	2	0
+abc	17	5740	False	2	2	10	0	True	False	20	3	8	10	2	0
+abc	17	10513	False	1	1	2	0	True	False	10	2	13	5	2	1
+abc	17	4150	False	1	2	5	1	True	False	21	4	19	6	0	1
+abc	17	3324	False	2	0	2	0	True	False	1	5	21	8	1	0
+abc	17	4467	False	0	0	9	0	True	False	18	7	15	9	2	0
+abc	17	2234	False	2	1	7	1	False	False	1	4	28	3	1	1
+abc	18	4991	False	2	1	9	0	True	False	16	0	29	0	2	1
+abc	18	9415	False	0	2	4	0	True	False	8	6	4	9	1	0
+abc	18	5667	False	2	1	0	1	True	False	17	1	26	1	2	1
+abc	18	63	False	2	1	10	1	True	False	3	1	25	7	0	0
+abc	18	9475	False	0	2	5	1	True	False	6	3	3	0	0	0
+abc	18	3260	False	2	2	2	1	True	False	5	4	1	0	0	1
+abc	19	9406	False	1	2	10	0	True	False	11	6	12	9	1	1
+abc	19	4027	False	0	1	10	1	False	False	22	3	25	2	1	0
+abc	19	9022	False	2	0	8	0	True	False	21	2	11	4	2	0
+abc	19	1601	False	2	0	0	1	True	False	14	2	9	0	2	1
+abc	19	6032	False	1	0	4	1	False	False	0	7	9	1	2	0
+abc	19	7274	False	0	2	10	1	True	False	13	3	22	10	1	1
+abc	2	3260	False	0	2	6	0	True	False	25	3	14	8	1	0
+abc	2	9653	False	0	2	10	0	False	False	9	3	1	8	2	1
+abc	2	1816	False	0	1	2	0	True	False	24	6	11	4	2	1
+abc	2	8705	False	1	1	6	0	True	False	8	1	3	7	1	1
+abc	2	6032	False	0	1	2	0	True	False	6	2	1	7	0	1
+abc	2	4150	False	1	1	1	1	True	False	22	7	26	3	0	0
+abc	20	3015	False	1	1	9	0	True	False	24	1	3	10	2	0
+abc	20	1317	False	0	1	8	0	True	False	18	4	9	5	0	0
+abc	20	10515	False	2	1	7	1	True	False	7	0	19	0	1	1
+abc	20	1816	False	1	0	8	0	True	False	14	4	7	0	0	1
+abc	20	4028	False	1	1	4	0	True	False	8	3	8	9	1	0
+abc	20	709	False	2	0	9	0	True	False	0	1	4	0	1	1
+abc	21	2095	False	1	2	10	0	True	False	12	5	9	4	2	0
+abc	21	10517	False	0	1	4	1	True	False	19	2	7	7	0	1
+abc	21	2614	False	1	2	4	0	True	False	18	0	19	1	1	0
+abc	21	3504	False	2	2	7	1	True	False	17	7	26	0	0	0
+abc	21	340	False	0	2	1	1	True	False	2	3	20	1	1	0
+abc	21	3990	False	2	2	0	1	True	False	23	5	14	9	2	0
+abc	22	10512	False	2	1	0	1	True	False	25	2	2	4	1	1
+abc	22	10516	False	0	0	7	1	True	False	6	2	6	2	1	0
+abc	22	2641	False	0	0	1	1	True	False	3	5	27	4	2	1
+abc	22	10300	False	1	1	3	1	True	False	14	5	8	4	2	1
+abc	22	8705	True	0	2	4	0	True	False	5	5	2	2	2	0
+abc	22	10513	False	1	0	9	0	True	False	1	4	8	1	2	1
+abc	23	10582	False	2	2	0	0	True	False	10	3	8	4	1	1
+abc	23	4150	False	0	2	3	0	True	False	19	0	1	8	1	0
+abc	23	2010	False	1	0	5	0	False	False	1	0	17	3	1	1
+abc	23	3484	False	1	0	9	1	True	False	1	0	4	7	1	0
+abc	23	117	False	1	2	2	0	False	False	11	5	26	10	1	1
+abc	23	4269	False	0	2	10	1	True	False	7	4	20	1	0	1
+abc	24	4050	False	0	2	3	0	True	True	3	5	12	3	1	1
+abc	24	11456	False	2	1	8	1	True	False	22	4	0	10	0	0
+abc	24	2656	False	1	1	7	0	True	False	6	1	1	3	0	1
+abc	24	4467	True	1	1	5	1	True	False	19	6	1	9	0	0
+abc	24	3173	False	0	1	1	1	False	False	13	7	14	6	2	1
+abc	24	9653	False	1	0	5	0	True	False	25	0	23	10	0	1
+abc	25	2234	False	1	2	5	0	True	True	4	1	1	0	1	0
+abc	25	1511	False	2	0	5	1	True	False	3	5	21	3	2	0
+abc	25	1708	False	2	1	0	1	True	False	12	3	23	1	1	0
+abc	25	7515	True	0	1	4	1	True	False	6	6	15	2	1	1
+abc	25	9642	False	0	0	9	0	True	False	14	4	4	10	0	0
+abc	25	451	False	2	2	6	0	True	False	6	3	11	8	1	1
+abc	26	709	False	2	2	5	1	True	False	0	2	7	6	1	0
+abc	26	2614	False	1	2	5	1	False	False	11	6	6	0	0	1
+abc	26	5667	False	2	0	9	1	True	False	11	3	30	2	1	0
+abc	26	1816	False	2	0	1	1	True	False	15	3	20	10	1	1
+abc	26	9406	False	2	1	0	0	True	False	13	1	24	2	0	1
+abc	26	1601	False	1	2	6	0	True	False	19	5	27	1	0	0
+abc	27	3324	False	2	0	3	0	True	False	18	0	16	0	0	1
+abc	27	3504	False	2	2	6	0	True	False	13	2	29	4	1	1
+abc	27	3015	False	2	2	3	0	True	False	22	6	20	4	2	1
+abc	27	1317	False	0	2	3	1	True	False	3	7	29	10	1	0
+abc	27	7274	False	0	1	6	0	True	False	18	2	29	9	1	0
+abc	27	2641	False	0	0	9	1	True	False	22	6	12	2	1	0
+abc	28	9475	False	1	2	6	1	True	False	21	2	15	5	0	1
+abc	28	3484	False	0	1	5	1	True	False	5	6	7	1	1	1
+abc	28	4027	False	2	0	4	0	True	False	0	7	3	7	0	1
+abc	28	340	False	0	1	9	0	True	False	0	5	23	6	1	0
+abc	28	63	False	2	2	4	0	True	False	4	4	12	0	1	0
+abc	28	10513	False	2	2	7	0	True	False	1	6	2	5	2	0
+abc	29	4269	False	2	2	1	0	True	False	23	0	9	6	2	1
+abc	29	10512	False	0	1	5	1	True	False	6	1	11	4	2	1
+abc	29	4050	False	1	1	5	1	True	False	7	6	19	2	1	0
+abc	29	3990	False	1	1	2	1	True	False	18	3	8	5	2	0
+abc	29	3260	False	0	1	6	0	True	False	10	0	30	10	2	1
+abc	29	2656	False	1	0	7	1	True	False	12	0	3	6	2	0
+abc	3	4269	False	2	2	6	0	True	False	12	3	12	0	1	1
+abc	3	7515	False	2	2	2	1	True	False	22	2	26	9	0	1
+abc	3	709	False	2	0	0	1	True	False	3	2	1	2	1	0
+abc	3	2095	False	0	2	3	0	True	False	10	0	0	8	1	1
+abc	3	3324	False	1	2	5	1	True	False	25	7	19	6	0	0
+abc	3	9415	False	1	1	7	1	True	False	6	2	7	1	1	0
+abc	30	4991	False	0	0	4	0	True	False	24	4	13	1	0	1
+abc	30	10517	False	2	2	4	1	True	False	8	5	4	4	0	1
+abc	30	5740	True	0	2	5	0	True	False	6	5	1	4	2	0
+abc	30	9415	False	0	1	0	0	True	False	16	6	20	10	1	0
+abc	30	9022	False	0	0	4	1	True	False	25	2	27	1	2	0
+abc	30	1511	False	0	0	10	0	True	False	20	3	26	7	1	0
+abc	31	7515	False	0	0	1	1	True	False	19	0	3	3	1	1
+abc	31	117	False	0	1	10	0	True	False	20	0	0	3	1	0
+abc	31	3173	False	2	2	5	1	True	False	9	1	12	1	0	0
+abc	31	2234	False	0	1	5	0	True	False	5	6	29	4	1	0
+abc	31	10300	False	0	1	9	0	True	False	17	4	5	7	1	0
+abc	31	9653	False	1	1	7	1	True	False	17	3	25	6	2	1
+abc	32	451	False	1	0	6	1	True	False	19	3	1	9	0	1
+abc	32	10582	False	1	2	1	1	False	False	15	4	0	4	1	0
+abc	32	1708	False	1	0	6	0	True	False	2	2	27	0	0	0
+abc	32	11456	False	0	1	6	0	True	False	23	1	9	8	2	1
+abc	32	8705	False	1	0	0	0	True	False	7	2	9	3	0	0
+abc	32	10515	False	2	2	0	0	True	False	15	6	12	7	1	1

@@ -10,13 +10,48 @@ class TeamConfig:
     def __init__(
         self,
         no_show: Optional[BooleanValue] = None,
-        auto_pantry_carrots: Optional[IntValue] = None,
-        tele_pantry_carrots: Optional[IntValue] = None,
+        autoCarrotO: Optional[IntValue] = None,
+        autoCarrotCakeO: Optional[IntValue] = None,
+        autoCarrotL1: Optional[IntValue] = None,
+        autoCarrotL2: Optional[IntValue] = None,
+        autoCarrotL3: Optional[IntValue] = None,
+        autoCarrotCakeL1: Optional[IntValue] = None,
+        autoCarrotCakeL2: Optional[IntValue] = None,
+        autoCarrotCakeL3: Optional[IntValue] = None,
+        telCarrotO: Optional[IntValue] = None,
+        telCarrotCakeO: Optional[IntValue] = None,
+        telCarrotL1: Optional[IntValue] = None,
+        telCarrotL2: Optional[IntValue] = None,
+        telCarrotL3: Optional[IntValue] = None,
+        telCarrotCakeL1: Optional[IntValue] = None,
+        telCarrotCakeL2: Optional[IntValue] = None,
+        telCarrotCakeL3: Optional[IntValue] = None,
+        auto_cross_kitchen_line: Optional[BooleanValue] = None,
+        auto_robot_stuck_or_astop_in_auto: Optional[BooleanValue] = None,
+        tele_oven_carrots_cake: Optional[IntValue] = None,
+        tele_oven_carrots: Optional[IntValue] = None,
+        harvest_haul_carrots: Optional[IntValue] = None,
+        harvest_haul_carrots_cake: Optional[IntValue] = None,
     ):
-        self.fields = [
-            no_show or BooleanValue(0.95),
-            auto_pantry_carrots or IntValue(0, 2),
-            tele_pantry_carrots or IntValue(0, 25),
+        self.fields =
+            autoCarrotO or IntValue(0, 30),
+            autoCarrotCakeO or IntValue(0, 30),
+            autoCarrotL1 or IntValue(0, 30),
+            autoCarrotL2 or IntValue(0, 30),
+            autoCarrotL3 or IntValue(0, 30),
+            autoCarrotCakeL1 or IntValue(0, 30),
+            autoCarrotCakeL2 or IntValue(0, 30),
+            autoCarrotCakeL3 or IntValue(0, 30),
+            telCarrotO or IntValue(0, 30),
+            telCarrotCakeO or IntValue(0, 30),
+            telCarrotL1 or IntValue(0, 30),
+            telCarrotL2 or IntValue(0, 30),
+            telCarrotL3 or IntValue(0, 30),
+            telCarrotCakeL1 or IntValue(0, 30),
+            telCarrotCakeL2 or IntValue(0, 30),
+            telCarrotCakeL3 or IntValue(0, 30),,
+            harvest_haul_carrots or IntValue(0,2),
+            harvest_haul_carrots_cake or IntValue (0,1),
         ]
 
     def generate_data(self):
@@ -68,7 +103,6 @@ def main():
         match_number = match_data[0]
         teams = match_data[1:]
 
-        print(match_data)
         match_schedule.append(match_data)
 
         if i < num_scouted_matches:
