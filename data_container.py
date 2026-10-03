@@ -10,16 +10,16 @@ SCOUTED_COLUMNS = [
     # "Starting Position",
 
     "No Show",
-    "autoCarrotO"
-    "autoCarrotCakeO"
+    "autoCarrotO",
+    "autoCarrotCakeO",
     "autoCarrotL1",
     "autoCarrotL2",
     "autoCarrotL3",
     "autoCarrotCakeL1",
     "autoCarrotCakeL2",
     "autoCarrotCakeL3",
-    "telCarrotO"
-    "telCarrotCakeO"
+    "telCarrotO",
+    "telCarrotCakeO",
     "telCarrotL1",
     "telCarrotL2",
     "telCarrotL3",
@@ -28,10 +28,9 @@ SCOUTED_COLUMNS = [
     "telCarrotCakeL3",
     "Auto Cross Kitchen Line",
     "Auto Robot Stuck or Astop in Auto?",
-    "Tele Oven Carrot Scoring",
-    "Tele Oven Carrot Cake Scoring",
     "Harvest Haul Carrots",
     "Harvest Haul Carrot Cakes",
+    "XXXXXX"
     # "Defended by opponent?",
     # "Opposing Zone Actions",
     # "Park",
