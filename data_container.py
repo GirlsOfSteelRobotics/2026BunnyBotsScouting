@@ -8,7 +8,6 @@ SCOUTED_COLUMNS = [
     "Match Number",
     "Team and Robot",
     # "Starting Position",
-
     "No Show",
     "autoCarrotO",
     "autoCarrotCakeO",
@@ -30,7 +29,6 @@ SCOUTED_COLUMNS = [
     "Auto Robot Stuck or Astop in Auto?",
     "Harvest Haul Carrots",
     "Harvest Haul Carrot Cakes",
-    "XXXXXX"
     # "Defended by opponent?",
     # "Opposing Zone Actions",
     # "Park",

@@ -51,8 +51,8 @@ class TeamConfig:
             telCarrotCakeL3 or IntValue(0, 20),
             auto_cross_kitchen_line or BooleanValue(0.95),
             auto_robot_stuck_or_astop_in_auto or BooleanValue(0.95),
-            harvest_haul_carrots or IntValue(0,3),
-            harvest_haul_carrots_cake or IntValue (0,1),
+            harvest_haul_carrots or IntValue(0, 3),
+            harvest_haul_carrots_cake or IntValue(0, 1),
         ]
 
     def generate_data(self):
