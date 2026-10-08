@@ -48,5 +48,6 @@ def load_scouted_data():
     scouted_data = pd.read_csv(
         SCRIPT_DIRECTORY / f"data/{EVENT_KEY}/scouted_data.tsv", sep="\t"
     )
+    scouted_data['Team and Robot'] = scouted_data['Team and Robot'].astype(str)
 
     return scouted_data
