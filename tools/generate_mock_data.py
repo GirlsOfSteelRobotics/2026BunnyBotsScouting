@@ -42,7 +42,16 @@ class TeamConfig:
         yellow_red_card: Optional[EnumValue] = None,
     ):
         self.fields = [
-            starting_position or EnumValue(["Alliance Pantry","Alliance Oven/Ramp","Middle Driver Station","Other"],[30,30,30,10]),
+            starting_position
+            or EnumValue(
+                [
+                    "Alliance Pantry",
+                    "Alliance Oven/Ramp",
+                    "Middle Driver Station",
+                    "Other",
+                ],
+                [30, 30, 30, 10],
+            ),
             no_show or BooleanValue(0.95),
             autoCarrotO or IntValue(0, 5),
             autoCarrotCakeO or IntValue(0, 2),
@@ -65,14 +74,15 @@ class TeamConfig:
             harvest_haul_carrots or IntValue(0, 3),
             harvest_haul_carrots_cake or IntValue(0, 1),
             defended_by_opponent or BooleanValue(0.05),
-            opposing_zone_actions or EnumValue(["Collecting","Defense"],[50,50]),
+            opposing_zone_actions or EnumValue(["Collecting", "Defense"], [50, 50]),
             park or BooleanValue(0.05),
             mechanical_issue or BooleanValue(0.5),
             died or BooleanValue(0.95),
             tipped_or_fell_over or BooleanValue(0.95),
-            scoring_effectiveness or IntValue(0,5),
-            defense_skill or IntValue(0,5),
-            yellow_red_card or EnumValue(["No Card","Yellow Card","Red Card"],[85,10,5]),
+            scoring_effectiveness or IntValue(0, 5),
+            defense_skill or IntValue(0, 5),
+            yellow_red_card
+            or EnumValue(["No Card", "Yellow Card", "Red Card"], [85, 10, 5]),
         ]
 
     def generate_data(self):
