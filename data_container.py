@@ -27,6 +27,7 @@ SCOUTED_COLUMNS = [
     "telCarrotCakeL3",
     "Auto Cross Kitchen Line",
     "Auto Robot Stuck or Astop in Auto?",
+    "Endgame Park"
     "Harvest Haul Carrots",
     "Harvest Haul Carrot Cakes",
     # "Defended by opponent?",
