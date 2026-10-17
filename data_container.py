@@ -42,3 +42,7 @@ def load_scouted_data():
     )
 
     return scouted_data
+
+#lists that i dont want to make again
+match_numbers = list("Match Number")
+team_numbers = list("Team and Robot")
