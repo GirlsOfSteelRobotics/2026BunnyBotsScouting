@@ -9,14 +9,80 @@ class TeamConfig:
     # This list should be in the same order and column count as SCOUTED_COLUMNS
     def __init__(
         self,
+        starting_position: Optional[EnumValue] = None,
         no_show: Optional[BooleanValue] = None,
-        auto_pantry_carrots: Optional[IntValue] = None,
-        tele_pantry_carrots: Optional[IntValue] = None,
+        autoCarrotO: Optional[IntValue] = None,
+        autoCarrotCakeO: Optional[IntValue] = None,
+        autoCarrotL1: Optional[IntValue] = None,
+        autoCarrotL2: Optional[IntValue] = None,
+        autoCarrotL3: Optional[IntValue] = None,
+        autoCarrotCakeL1: Optional[IntValue] = None,
+        autoCarrotCakeL2: Optional[IntValue] = None,
+        autoCarrotCakeL3: Optional[IntValue] = None,
+        telCarrotO: Optional[IntValue] = None,
+        telCarrotCakeO: Optional[IntValue] = None,
+        telCarrotL1: Optional[IntValue] = None,
+        telCarrotL2: Optional[IntValue] = None,
+        telCarrotL3: Optional[IntValue] = None,
+        telCarrotCakeL1: Optional[IntValue] = None,
+        telCarrotCakeL2: Optional[IntValue] = None,
+        telCarrotCakeL3: Optional[IntValue] = None,
+        auto_cross_kitchen_line: Optional[BooleanValue] = None,
+        auto_robot_stuck_or_astop_in_auto: Optional[BooleanValue] = None,
+        harvest_haul_carrots: Optional[IntValue] = None,
+        harvest_haul_carrots_cake: Optional[IntValue] = None,
+        defended_by_opponent: Optional[BooleanValue] = None,
+        opposing_zone_actions: Optional[EnumValue] = None,
+        park: Optional[BooleanValue] = None,
+        mechanical_issue: Optional[BooleanValue] = None,
+        died: Optional[BooleanValue] = None,
+        tipped_or_fell_over: Optional[BooleanValue] = None,
+        scoring_effectiveness: Optional[IntValue] = None,
+        defense_skill: Optional[IntValue] = None,
+        yellow_red_card: Optional[EnumValue] = None,
     ):
         self.fields = [
+            starting_position
+            or EnumValue(
+                [
+                    "Alliance Pantry",
+                    "Alliance Oven/Ramp",
+                    "Middle Driver Station",
+                    "Other",
+                ],
+                [30, 30, 30, 10],
+            ),
             no_show or BooleanValue(0.95),
-            auto_pantry_carrots or IntValue(0, 2),
-            tele_pantry_carrots or IntValue(0, 25),
+            autoCarrotO or IntValue(0, 5),
+            autoCarrotCakeO or IntValue(0, 2),
+            autoCarrotL1 or IntValue(0, 5),
+            autoCarrotL2 or IntValue(0, 5),
+            autoCarrotL3 or IntValue(0, 5),
+            autoCarrotCakeL1 or IntValue(0, 2),
+            autoCarrotCakeL2 or IntValue(0, 2),
+            autoCarrotCakeL3 or IntValue(0, 2),
+            telCarrotO or IntValue(0, 30),
+            telCarrotCakeO or IntValue(0, 20),
+            telCarrotL1 or IntValue(0, 30),
+            telCarrotL2 or IntValue(0, 30),
+            telCarrotL3 or IntValue(0, 30),
+            telCarrotCakeL1 or IntValue(0, 20),
+            telCarrotCakeL2 or IntValue(0, 20),
+            telCarrotCakeL3 or IntValue(0, 20),
+            auto_cross_kitchen_line or BooleanValue(0.95),
+            auto_robot_stuck_or_astop_in_auto or BooleanValue(0.95),
+            harvest_haul_carrots or IntValue(0, 3),
+            harvest_haul_carrots_cake or IntValue(0, 1),
+            defended_by_opponent or BooleanValue(0.05),
+            opposing_zone_actions or EnumValue(["Collecting", "Defense"], [50, 50]),
+            park or BooleanValue(0.05),
+            mechanical_issue or BooleanValue(0.5),
+            died or BooleanValue(0.95),
+            tipped_or_fell_over or BooleanValue(0.95),
+            scoring_effectiveness or IntValue(0, 5),
+            defense_skill or IntValue(0, 5),
+            yellow_red_card
+            or EnumValue(["No Card", "Yellow Card", "Red Card"], [85, 10, 5]),
         ]
 
     def generate_data(self):
@@ -68,7 +134,6 @@ def main():
         match_number = match_data[0]
         teams = match_data[1:]
 
-        print(match_data)
         match_schedule.append(match_data)
 
         if i < num_scouted_matches:
