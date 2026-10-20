@@ -8,11 +8,20 @@ from data_container import load_scouted_data
 
 match_df = load_scouted_data().copy()
 
+
 @module.ui
 def team_pit_trend_ui():
     teams = sorted(
-        [t for t in match_df["Team and Robot"].dropna().astype(str).str.strip().unique().tolist()],
-        key=lambda x: int(x)
+        [
+            t
+            for t in match_df["Team and Robot"]
+            .dropna()
+            .astype(str)
+            .str.strip()
+            .unique()
+            .tolist()
+        ],
+        key=lambda x: int(x),
     )
 
     return ui.page_fluid(
