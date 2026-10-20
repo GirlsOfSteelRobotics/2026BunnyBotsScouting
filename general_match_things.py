@@ -119,7 +119,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def tele_carrot_pantry_bar():
-        teams_in_match = ["3504", "340", "3015", "5667", "4467"]
+        teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
@@ -132,7 +132,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def auto_carrot_pantry_bar():
-        teams_in_match = ["3504", "340", "3015", "5667", "4467"]
+        teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
