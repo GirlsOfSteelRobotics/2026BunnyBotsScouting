@@ -7,7 +7,7 @@ SCOUTED_COLUMNS = [
     "Scouter Initials",
     "Match Number",
     "Team and Robot",
-    # "Starting Position",
+    "Starting Position",
     "No Show",
     "autoCarrotO",
     "autoCarrotCakeO",
@@ -29,15 +29,15 @@ SCOUTED_COLUMNS = [
     "Auto Robot Stuck or Astop in Auto?",
     "Harvest Haul Carrots",
     "Harvest Haul Carrot Cakes",
-    # "Defended by opponent?",
-    # "Opposing Zone Actions",
-    # "Park",
-    # "Mechanical Issue?",
-    # "Died?",
-    # "Tipped/Fell Over",
-    # "Scoring Effectiveness",
-    # "Defense Skill",
-    # "Yellow/Red Card",
+    "Defended by opponent?",
+    "Opposing Zone Actions",
+    "Park",
+    "Mechanical Issue?",
+    "Died?",
+    "Tipped/Fell Over",
+    "Scoring Effectiveness",
+    "Defense Skill",
+    "Yellow/Red Card",
     # "Comments",
 ]
 
@@ -48,5 +48,6 @@ def load_scouted_data():
     scouted_data = pd.read_csv(
         SCRIPT_DIRECTORY / f"data/{EVENT_KEY}/scouted_data.tsv", sep="\t"
     )
+    scouted_data["Team and Robot"] = scouted_data["Team and Robot"].astype(str)
 
     return scouted_data
