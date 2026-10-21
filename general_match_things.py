@@ -46,7 +46,7 @@ def general_match_ui():
                     "Teleop",
                     ui.card(output_widget("tele_carrot_pantry_bar")),
                     ui.card(output_widget("tele_carrot_cake_pantry_bar")),
-                    ui.card(output_widget("tele_carrot_pantry_box")),
+                    ui.card(output_widget("tele_carrot_pantry_bar")),
                     ui.card(output_widget("tele_carrot_cake_pantry_box")),
                     ui.card(output_widget("tele_carrot_oven")),
                     ui.card(output_widget("tele_carrot_cake_oven")),
@@ -108,7 +108,7 @@ def general_match_server(input, output, session):
         return fig
 
     @render_widget
-    def tele_carrot_pantry_box():
+    def tele_carrot_pantry_bar():
         # L1, L2, L3 pantry carrot tele (box and whisker)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
@@ -148,3 +148,4 @@ def general_match_server(input, output, session):
             title="Average Times each Team Crosses the Kitchen Line",
         )
         return fig
+
