@@ -122,7 +122,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def tele_carrot_oven():
-        teams_in_match = get_teams_in_selected_match()
+        teams_in_match = get_teams_in_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
@@ -135,7 +135,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def auto_carrot_oven():
-        teams_in_match = get_teams_in_selected_match()
+        teams_in_match = get_teams_in_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
@@ -148,7 +148,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def tele_carrot_pantry_bar():
-        teams_in_match = get_teams_in_selected_match()
+        teams_in_match = get_teams_in_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
@@ -161,7 +161,7 @@ def general_match_server(input, output, session):
 
     @render_widget
     def auto_carrot_pantry_bar():
-        teams_in_match = get_teams_in_selected_match()
+        teams_in_match = get_teams_in_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
