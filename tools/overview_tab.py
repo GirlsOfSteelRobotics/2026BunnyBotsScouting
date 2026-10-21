@@ -9,22 +9,15 @@ import numpy as np
 
 pd.set_option('display.max_columns', None)
 
-df = load_scouted_data()
+scouted_data = load_scouted_data()
+team_averages = (
+    scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
+)
 
 
 @module.ui
 def overview_tab_ui():
     return ui.page_fluid(
-        ui.layout_sidebar(
-            ui.sidebar(
-                ui.input_radio_buttons(
-                    "selection_mode",
-                    "Select By:",
-                    choices=["Match Number", "Pick 6 Teams"],
-                    selected="Match Number"
-                ),
-            ),
-        ),
         ui.card(output_widget("teleop_vs_auto_endgame")),
         ui.card(output_widget()),
     )
