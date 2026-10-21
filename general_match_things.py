@@ -94,6 +94,58 @@ def general_match_server(input, output, session):
         return fig
 
     @render_widget
+    def tele_carrot_oven():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["telCarrotO"],
+            title="# of Carrots Scored in Oven by a Team for Tele",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_oven():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["autoCarrotO"],
+            title="# of Carrots Scored in Oven by a Team for Auto",
+        )
+        return fig
+
+    @render_widget
+    def tele_carrot_pantry_bar():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
+            title="# of cakes scored in pantry per team in tele",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_pantry_bar():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
+            title="# of carrots scored in pantry per team in auto",
+        )
+        return fig
+
+    @render_widget
     def auto_carrot_pantry_box():
         # L1, L2, L3 pantry carrot auto (box and whisker)
         teams_in_match = get_teams_in_selected_match()
