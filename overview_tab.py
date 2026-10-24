@@ -19,7 +19,7 @@ team_averages = (
 def overview_tab_ui():
     return ui.page_fluid(
         ui.card(output_widget("teleop_vs_auto_endgame")),
-        ui.card(output_widget()),
+        ui.card(output_widget("placeholder")),
     )
 
 @module.server

@@ -4,13 +4,13 @@ import plotly.express as px
 from shiny import reactive, render, module
 from shiny import App, ui
 from shinywidgets import output_widget, render_widget
-from data_container import load_scouted_data, match_numbers, team_numbers
+from data_container import load_scouted_data, match_numbers, team_numbers, load_match_sched
 
 scouted_data = load_scouted_data()
 team_averages = (
     scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
 )
-
+match_sched = load_match_sched()
 
 @module.ui
 def general_match_ui():
@@ -81,7 +81,12 @@ def general_match_server(input, output, session):
     def get_teams_in_match():
         if input.selection_mode() == "Match Number":
             match_number = str(input.match_select())
-            teams = team_numbers[match_number]
+            indices = match_sched["Match Number"] == match_number
+            print(match_number)
+            print(match_numbers)
+            teams = match_sched[indices]
+            print(teams)
+            return teams.values.tolist()[0][1:]
         else:
             teams = [
                 str(input.team1()), str(input.team2()), str(input.team3()),

@@ -1,15 +1,13 @@
 from shiny import App, ui
 from overview_tab import overview_tab_server, overview_tab_ui
 from general_match_things import general_match_server, general_match_ui
-from team import pit_overview_tab_ui, pit_overview_tab_server
+from team import team_pit_ui , pit_overview_tab_server
 
 app_ui = ui.page_navbar(
-    ui.nav_panel("A", "Page A content"),
-    ui.nav_panel("Matches", general_match_ui("matches")),
     ui.nav_panel("Overview", overview_tab_ui("overview")),
-    ui.nav_panel("B", "Page B content"),
-    ui.nav_panel("C", "Page C content"),
-    title="App with navbar",
+    ui.nav_panel("Matches", general_match_ui("matches")),
+    ui.nav_panel("Team", team_pit_ui("team")),
+    title="2026 BunnyBots Scouting App",
 )
 
 
