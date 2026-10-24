@@ -49,6 +49,31 @@ def load_scouted_data():
         SCRIPT_DIRECTORY / f"data/{EVENT_KEY}/scouted_data.tsv", sep="\t"
     )
     scouted_data["Team and Robot"] = scouted_data["Team and Robot"].astype(str)
+    scouted_data["telCarrot"] = (
+        scouted_data["telCarrotL1"]
+        + scouted_data["telCarrotL2"]
+        + scouted_data["telCarrotL3"]
+    )
+    scouted_data["telCarrotCake"] = (
+        scouted_data["telCarrotCakeL1"]
+        + scouted_data["telCarrotCakeL2"]
+        + scouted_data["telCarrotCakeL3"]
+    )
+    scouted_data["autoCarrot"] = (
+        scouted_data["autoCarrotL1"]
+        + scouted_data["autoCarrotL2"]
+        + scouted_data["autoCarrotL3"]
+    )
+    scouted_data["autoCarrotCake"] = (
+        scouted_data["autoCarrotCakeL1"]
+        + scouted_data["autoCarrotCakeL2"]
+        + scouted_data["autoCarrotCakeL3"]
+    )
+    scouted_data["parkPoints"] = scouted_data["Park"] * 2
+    scouted_data["Harvest Haul Carrot Points"] = scouted_data["Harvest Haul Carrots"]
+    scouted_data["Harvest Haul Carrot Cake Points"] = (
+        scouted_data["Harvest Haul Carrot Cakes"] * 3
+    )
 
     return scouted_data
 
