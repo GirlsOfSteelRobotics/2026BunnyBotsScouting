@@ -72,7 +72,7 @@ def general_match_server(input, output, session):
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        #small_team_averages = small_team_averages.sort_values("Auto Cross Kitchen Line", ascending=False)
+        # small_team_averages = small_team_averages.sort_values("Auto Cross Kitchen Line", ascending=False)
         fig = px.bar(
             small_team_averages,
             x="Team and Robot",
@@ -80,7 +80,6 @@ def general_match_server(input, output, session):
             title="Average Times Each Team Crosses the Kitchen Line",
         )
         return fig
-
 
     @render_widget
     def auto_carrot_pantry_bar():
