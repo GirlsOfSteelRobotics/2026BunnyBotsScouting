@@ -71,7 +71,12 @@ def general_match_server(input, output, session):
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        fig = px.scatter(small_team_averages, x="")
+        fig = px.scatter(
+            small_team_averages,
+            x="",
+            y="",
+            title="Teleop vs Auto+Endgame Points per Team",
+        )
 
     @render_widget
     def auto_cross_kitchen_line():
