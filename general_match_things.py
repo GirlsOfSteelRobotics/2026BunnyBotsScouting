@@ -71,10 +71,7 @@ def general_match_server(input, output, session):
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        fig = px.scatter(
-            small_team_averages,
-            x=""
-        )
+        fig = px.scatter(small_team_averages, x="")
 
     @render_widget
     def auto_cross_kitchen_line():
@@ -130,8 +127,6 @@ def general_match_server(input, output, session):
             title="Number of Carrots Scored in Pantry during Auto",
         )
         return fig
-
-
 
     @render_widget
     def auto_carrot_cake_pantry_box():
@@ -278,7 +273,11 @@ def general_match_server(input, output, session):
         fig = px.bar(
             small_team_averages,
             x="Team and Robot",
-            y=["parkPoints", "Harvest Haul Carrot Points", "Harvest Haul Carrot Cake Points"],
+            y=[
+                "parkPoints",
+                "Harvest Haul Carrot Points",
+                "Harvest Haul Carrot Cake Points",
+            ],
             title="Harvest Haul Carrots and Carrot Cake Points while Parked in Endgame per Team",
         )
         return fig
