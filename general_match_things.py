@@ -4,7 +4,7 @@ import plotly.express as px
 from shiny import reactive, render, module
 from shiny import App, ui
 from shinywidgets import output_widget, render_widget
-from data_container import load_scouted_data
+from data_container import load_scouted_data, match_numbers, team_numbers, match_sched
 
 scouted_data = load_scouted_data()
 team_averages = (
@@ -62,9 +62,61 @@ def general_match_ui():
 
 @module.server
 def general_match_server(input, output, session):
+    @render.ui
+    def match_list_combobox():
+        if input.selection_mode() == "Match Number":
+            return ui.input_select(
+                "match_select", "Match Number:", choices=match_numbers
+            )
+        else:
+            return ui.div(
+                ui.input_select(
+                    "team1", "Team 1:", choices=team_numbers, selected="3504"
+                ),
+                ui.input_select(
+                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[0]
+                ),
+                ui.input_select(
+                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[1]
+                ),
+                ui.input_select(
+                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[2]
+                ),
+                ui.input_select(
+                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[3]
+                ),
+                ui.input_select(
+                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
+                ),
+            )
 
     def get_teams_in_selected_match():
-        return ["3504", "340", "3015", "5667", "4467"]
+        if input.selection_mode() == "Match Number":
+            match_number = str(input.match_select())
+            indices = match_sched["Match Number"] == match_number
+            teams = match_sched[indices]
+            return teams.values.tolist()[0][1:]
+        else:
+            teams = [
+                str(input.team1()),
+                str(input.team2()),
+                str(input.team3()),
+                str(input.team4()),
+                str(input.team5()),
+                str(input.team6()),
+            ]
+        return teams
+
+    def get_teams_in_match_data():
+        teams = get_teams_in_selected_match()
+        return scouted_data().loc[team_numbers.isin(teams)]
+
+    @render_widget
+    def teleop_vs_auto_scatter():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.scatter(small_team_averages, x="")
 
     @render_widget
     def teleop_vs_auto_scatter():

@@ -76,3 +76,30 @@ def load_scouted_data():
     )
 
     return scouted_data
+
+
+def load_match_sched():
+    match_sched = pd.read_csv(SCRIPT_DIRECTORY / f"data/mock_data/match_schedule.csv")
+    match_sched["Match Number"] = match_sched["Match Number"].astype(str)
+    match_sched["R1"] = match_sched["R1"].astype(str)
+    match_sched["R2"] = match_sched["R2"].astype(str)
+    match_sched["R3"] = match_sched["R3"].astype(str)
+    match_sched["B1"] = match_sched["B1"].astype(str)
+    match_sched["B2"] = match_sched["B2"].astype(str)
+    match_sched["B3"] = match_sched["B3"].astype(str)
+    return match_sched
+
+
+match_sched = load_match_sched()
+
+# lists that i dont want to make again
+match_numbers = sorted(list(load_match_sched()["Match Number"]), key=int)
+team_numbers = sorted(
+    match_sched["R1"].tolist()
+    + match_sched["R2"].tolist()
+    + match_sched["R3"].tolist()
+    + match_sched["B1"].tolist()
+    + match_sched["B2"].tolist()
+    + match_sched["B3"].tolist(),
+    key=int,
+)

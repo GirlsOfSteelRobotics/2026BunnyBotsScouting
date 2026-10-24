@@ -10,7 +10,7 @@ match_df = load_scouted_data().copy()
 
 
 @module.ui
-def team_pit_trend_ui():
+def team_pit_ui():
     teams = sorted(
         [
             t
@@ -38,4 +38,17 @@ def team_pit_trend_ui():
             selected="",
         ),
         ui.card(output_widget("team_trend_graph")),
+        ui.layout_columns(
+            ui.card(
+                ui.card_header("Placeholder"),
+                ui.output_text("placeholder"),
+            ),
+        ),
     )
+
+
+@module.server
+def pit_overview_tab_server(input, output, session):
+    @render.text
+    def placeholder():
+        print("hello, world!")
