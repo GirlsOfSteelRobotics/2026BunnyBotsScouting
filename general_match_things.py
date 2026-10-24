@@ -166,6 +166,14 @@ def general_match_server(input, output, session):
         return fig
 
     @render_widget
+    def tele_carrot_pantry_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
+    def tele_carrot_cake_pantry_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
     def tele_carrot_carrot_cake_oven():
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
