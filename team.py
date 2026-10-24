@@ -12,7 +12,15 @@ match_df = load_scouted_data().copy()
 @module.ui
 def team_pit_ui():
     teams = sorted(
-        [t for t in match_df["Team and Robot"].dropna().astype(str).str.strip().unique().tolist()],
+        [
+            t
+            for t in match_df["Team and Robot"]
+            .dropna()
+            .astype(str)
+            .str.strip()
+            .unique()
+            .tolist()
+        ],
         key=lambda x: int(x),
     )
 
@@ -35,8 +43,9 @@ def team_pit_ui():
                 ui.card_header("Placeholder"),
                 ui.output_text("placeholder"),
             ),
-        )
+        ),
     )
+
 
 @module.server
 def pit_overview_tab_server(input, output, session):

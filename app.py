@@ -1,7 +1,7 @@
 from shiny import App, ui
 from overview_tab import overview_tab_server, overview_tab_ui
 from general_match_things import general_match_server, general_match_ui
-from team import team_pit_ui , pit_overview_tab_server
+from team import team_pit_ui, pit_overview_tab_server
 
 app_ui = ui.page_navbar(
     ui.nav_panel("Overview", overview_tab_ui("overview")),
