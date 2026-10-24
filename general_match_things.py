@@ -37,8 +37,9 @@ def general_match_ui():
                     ui.card(output_widget("auto_carrot_cake_pantry_bar")),
                     ui.card(output_widget("auto_carrot_pantry_box")),
                     ui.card(output_widget("auto_carrot_cake_pantry_box")),
-                    ui.card(output_widget("auto_carrot_oven")),
-                    ui.card(output_widget("auto_carrot_cake_oven")),
+                    ui.card(output_widget("auto_carrot_carrot_cake_oven_bar")),
+                    ui.card(output_widget("auto_carrot_oven_box")),
+                    ui.card(output_widget("auto_carrot_cake_oven_box")),
                 ),
                 ui.nav_panel(
                     "Teleop",
@@ -46,8 +47,9 @@ def general_match_ui():
                     ui.card(output_widget("tele_carrot_cake_pantry_bar")),
                     ui.card(output_widget("tele_carrot_pantry_box")),
                     ui.card(output_widget("tele_carrot_cake_pantry_box")),
-                    ui.card(output_widget("tele_carrot_oven")),
-                    ui.card(output_widget("tele_carrot_cake_oven")),
+                    ui.card(output_widget("tele_carrot_carrot_cake_oven")),
+                    ui.card(output_widget("tele_carrot_oven_box")),
+                    ui.card(output_widget("tele_carrot_cake_oven_box")),
                 ),
                 ui.nav_panel(
                     "Endgame",
@@ -65,7 +67,36 @@ def general_match_server(input, output, session):
         return ["3504", "340", "3015", "5667", "4467"]
 
     @render_widget
-    def auto_carrot_cake_pantry_box():
+    def auto_cross_kitchen_line():
+        # avg # times cross kitchen line
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        # small_team_averages = small_team_averages.sort_values("Auto Cross Kitchen Line", ascending=False)
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y="Auto Cross Kitchen Line",
+            title="Average Times Each Team Crosses the Kitchen Line",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_pantry_bar():
+        # L1, L2, L3 pantry carrot auto (stacked bar)
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
+            title="Number of Carrot Scored in Pantry Per Team in Auto",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_cake_pantry_bar():
         # L1, L2, L3 pantry carrot cake auto (stacked bar)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
@@ -74,7 +105,50 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotCakeL1", "autoCarrotCakeL2", "autoCarrotCakeL3"],
-            title="# of Carrot Cakes Scored in Pantry per Team in Auto",
+            title="Number of Carrot Cakes Scored in Pantry per Team in Auto",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_pantry_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
+    def auto_carrot_cake_pantry_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
+    def auto_carrot_carrot_cake_oven_bar():
+        # pantry carrot auto (stacked bar)
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["autoCarrotO", "autoCarrotCakeO"],
+            title="Number of Carrots and Carrot Cakes Scored in Oven per Team in Auto",
+        )
+        return fig
+
+    @render_widget
+    def auto_carrot_oven_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
+    def auto_carrot_cake_oven_box():
+        teams_in_match = get_teams_in_selected_match()
+
+    @render_widget
+    def tele_carrot_pantry_bar():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.bar(
+            small_team_averages,
+            x="Team and Robot",
+            y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
+            title="Number of Carrots Scored in Pantry per Team in Teleop",
         )
         return fig
 
@@ -87,58 +161,31 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["telCarrotCakeL1", "telCarrotCakeL2", "telCarrotCakeL3"],
-            title="# of Carrot Cakes Scored in Pantry Per Team in Tele",
+            title="Number of Carrot Cakes Scored in Pantry Per Team in Teleop",
         )
         return fig
 
     @render_widget
-    def tele_carrot_oven():
+    def tele_carrot_carrot_cake_oven():
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.bar(
             small_team_averages,
             x="Team and Robot",
-            y=["telCarrotO"],
-            title="# of Carrots Scored in Oven by a Team for Tele",
+            y=["telCarrotO", "telCarrotCakeO"],
+            title="Number of Carrots and Carrot Cakes Scored in Oven per Team in Teleop",
         )
         return fig
 
     @render_widget
-    def auto_carrot_oven():
+    def tele_carrot_oven_box():
         teams_in_match = get_teams_in_selected_match()
-        indices = team_averages["Team and Robot"].isin(teams_in_match)
-        small_team_averages = team_averages[indices]
-        fig = px.bar(
-            small_team_averages,
-            x="Team and Robot",
-            y=["autoCarrotO"],
-            title="# of Carrots Scored in Oven by a Team for Auto",
-        )
-        return fig
 
     @render_widget
-    def tele_carrot_pantry_bar():
+    def tele_carrot_cake_oven_box():
         teams_in_match = get_teams_in_selected_match()
-        indices = team_averages["Team and Robot"].isin(teams_in_match)
-        small_team_averages = team_averages[indices]
-        fig = px.bar(
-            small_team_averages,
-            x="Team and Robot",
-            y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
-            title="# of cakes scored in pantry per team in tele",
-        )
-        return fig
 
     @render_widget
-    def auto_carrot_pantry_bar():
+    def park_harvest_haul():
         teams_in_match = get_teams_in_selected_match()
-        indices = team_averages["Team and Robot"].isin(teams_in_match)
-        small_team_averages = team_averages[indices]
-        fig = px.bar(
-            small_team_averages,
-            x="Team and Robot",
-            y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
-            title="# of carrots scored in pantry per team in auto",
-        )
-        return fig
