@@ -28,3 +28,10 @@ Note: You can add ` --reload` to that to have any changes in PyCharm auto update
 
 ## Hosted Website
 https://girlsofsteelrobotics.github.io/2026BunnyBotsScouting/
+
+
+## Linter
+```
+nbstripout ./...
+black .
+```

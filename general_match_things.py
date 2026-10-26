@@ -173,7 +173,7 @@ def general_match_server(input, output, session):
         return fig
 
     @render_widget
-    def cross_kitchen_line_bar ():
+    def cross_kitchen_line_bar():
         # cross kitchen line (bar)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
@@ -187,8 +187,8 @@ def general_match_server(input, output, session):
         return fig
 
     @render_widget
-    def one_team_pantry_progress_stacked_scatter ():
-        #progress of one team scoring in L1, L2, L3 pantry over time (stacked scatter plot)
+    def one_team_pantry_progress_stacked_scatter():
+        # progress of one team scoring in L1, L2, L3 pantry over time (stacked scatter plot)
         teamdata = scouted_data["Team and Robot"] == "3504"
         indices = scouted_data[teamdata]
         fig = px.area(
@@ -212,4 +212,3 @@ def general_match_server(input, output, session):
             title="# of Harvest Haul Carrots and Carrot Cakes per Team",
         )
         return fig
-

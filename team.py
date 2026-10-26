@@ -39,5 +39,3 @@ def team_pit_trend_ui():
         ),
         ui.card(output_widget("team_trend_graph")),
     )
-
-
