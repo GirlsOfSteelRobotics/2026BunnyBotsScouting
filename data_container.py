@@ -75,6 +75,67 @@ def load_scouted_data():
         scouted_data["Harvest Haul Carrot Cakes"] * 3
     )
 
+    team_averages = (
+        scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
+    )
+
+    team_averages["totalAutoOven"] = (
+        team_averages["autoCarrotO"] + team_averages["autoCarrotCakeO"]
+    )
+    team_averages["totalAutoCarrots"] = (
+        team_averages["autoCarrotL1"]
+        + team_averages["autoCarrotL2"]
+        + team_averages["autoCarrotL3"]
+    )
+    team_averages["totalAutoCarrotCakes"] = (
+        team_averages["autoCarrotCakeL1"]
+        + team_averages["autoCarrotCakeL2"]
+        + team_averages["autoCarrotCakeL3"]
+    )
+
+    team_averages["totalTelOven"] = (
+        team_averages["telCarrotO"] + team_averages["telCarrotCakeO"]
+    )
+    team_averages["totalTelCarrots"] = (
+        team_averages["telCarrotL1"]
+        + team_averages["telCarrotL2"]
+        + team_averages["telCarrotL3"]
+    )
+    team_averages["totalTelCarrotCakes"] = (
+        team_averages["telCarrotCakeL1"]
+        + team_averages["telCarrotCakeL2"]
+        + team_averages["telCarrotCakeL3"]
+    )
+
+    scouted_data["Total Auto"] = (
+        scouted_data["autoCarrotO"] * 2
+        + scouted_data["autoCarrotCakeO"] * 1
+        + scouted_data["autoCarrotL1"] * 3
+        + scouted_data["autoCarrotL2"] * 4
+        + scouted_data["autoCarrotL3"] * 5
+        + scouted_data["autoCarrotCakeL1"] * 8
+        + scouted_data["autoCarrotCakeL2"] * 10
+        + scouted_data["autoCarrotCakeL3"] * 12
+        + scouted_data["Auto Cross Kitchen Line"] * 2
+    )
+
+    scouted_data["Total Teleop"] = (
+        scouted_data["telCarrotO"] * 2
+        + scouted_data["telCarrotCakeO"] * 1
+        + scouted_data["telCarrotL1"] * 3
+        + scouted_data["telCarrotL2"] * 4
+        + scouted_data["telCarrotL3"] * 5
+        + scouted_data["telCarrotCakeL1"] * 8
+        + scouted_data["telCarrotCakeL2"] * 10
+        + scouted_data["telCarrotCakeL3"] * 12
+    )
+
+    scouted_data["Total Points"] = (
+        scouted_data["Total Auto"]
+        + scouted_data["Total Teleop"]
+        + scouted_data["parkPoints"]
+    )
+
     return scouted_data
 
 
@@ -92,7 +153,7 @@ def load_match_sched():
 
 match_sched = load_match_sched()
 
-# lists that i dont want to make again
+# lists that I don't want to make again
 match_numbers = sorted(list(load_match_sched()["Match Number"]), key=int)
 team_numbers = sorted(
     match_sched["R1"].tolist()
