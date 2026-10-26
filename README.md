@@ -32,6 +32,6 @@ https://girlsofsteelrobotics.github.io/2026BunnyBotsScouting/
 
 ## Linter
 ```
-nbstripout ./...
+nbstripout notebooks/*
 black .
 ```
