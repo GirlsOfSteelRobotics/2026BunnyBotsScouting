@@ -88,6 +88,24 @@ def general_match_server(input, output, session):
                 ui.input_select(
                     "team6", "Team 6:", choices=team_numbers, selected=team_numbers[5]
                 ),
+                ui.input_select(
+                    "team1", "Team 1:", choices=team_numbers, selected="3504"
+                ),
+                ui.input_select(
+                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[0]
+                ),
+                ui.input_select(
+                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[1]
+                ),
+                ui.input_select(
+                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[2]
+                ),
+                ui.input_select(
+                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[3]
+                ),
+                ui.input_select(
+                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
+                )
             )
 
     def get_teams_in_selected_match():
