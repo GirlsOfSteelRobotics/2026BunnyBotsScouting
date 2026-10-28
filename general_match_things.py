@@ -120,15 +120,9 @@ def general_match_server(input, output, session):
 
     @render_widget
     def auto_cross_kitchen_line():
-        # avg # times cross kitchen line
-        teams_in_match = get_teams_in_selected_match()
-
-    def auto_carrot_cake_pantry_box():
-        # L1, L2, L3 pantry carrot cake auto (stacked bar)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        # small_team_averages = small_team_averages.sort_values("Auto Cross Kitchen Line", ascending=False)
         fig = px.bar(
             small_team_averages,
             x="Team and Robot",
@@ -147,7 +141,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
-            title="Number of Carrot Scored in Pantry Per Team in Auto",
+            title="Number of Carrots Scored in Pantry Per Team in Auto",
         )
         return fig
 
