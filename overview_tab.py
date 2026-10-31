@@ -28,30 +28,32 @@ def overview_tab_server(input, output, session):
     @render_widget
     def teleop_v_autoend_all():
 
-        fig = px.scatter(team_averages, x = "allTeleop", y = "autoEnd", color = "allPoints", color_continuous_scale = "Plasma",
-                     title = "Teleop v. Auto + Endgame Points", text = "Team and Robot", hover_name="Team and Robot",
-                     hover_data={
-                         "allTeleop": ":.1f",
-                         "autoEnd": ":.1f",
-                         "allPoints": ":.1f",
-                         "Team and Robot": False
-                     },
-                     labels={
-                         "allTeleop": "Teleop Points",
-                         "autoEnd": "Auto + Endgame Points",
-                         "Team and Robot": "Team",
-                         "allPoints": "Total Points"
-                     },
-
-                         )
-
-        fig.update_traces(
-            marker=dict(size=8),
-            textposition='middle left'
+        fig = px.scatter(
+            team_averages,
+            x="allTeleop",
+            y="autoEnd",
+            color="allPoints",
+            color_continuous_scale="Plasma",
+            title="Teleop v. Auto + Endgame Points",
+            text="Team and Robot",
+            hover_name="Team and Robot",
+            hover_data={
+                "allTeleop": ":.1f",
+                "autoEnd": ":.1f",
+                "allPoints": ":.1f",
+                "Team and Robot": False,
+            },
+            labels={
+                "allTeleop": "Teleop Points",
+                "autoEnd": "Auto + Endgame Points",
+                "Team and Robot": "Team",
+                "allPoints": "Total Points",
+            },
         )
+
+        fig.update_traces(marker=dict(size=8), textposition="middle left")
         fig.update_layout(
             coloraxis_colorbar=dict(title="Total Points"),
         )
 
         return fig
-

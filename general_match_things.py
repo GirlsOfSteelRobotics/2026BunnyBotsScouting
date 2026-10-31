@@ -4,11 +4,18 @@ import plotly.express as px
 from shiny import reactive, render, module
 from shiny import App, ui
 from shinywidgets import output_widget, render_widget
-from data_container import load_scouted_data, match_numbers, team_numbers, match_sched, scouted_data
+from data_container import (
+    load_scouted_data,
+    match_numbers,
+    team_numbers,
+    match_sched,
+    scouted_data,
+)
 
 team_averages = (
     scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
 )
+
 
 @module.ui
 def general_match_ui():
@@ -103,7 +110,7 @@ def general_match_server(input, output, session):
                 ),
                 ui.input_select(
                     "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
-                )
+                ),
             )
 
     def get_teams_in_selected_match():
@@ -132,25 +139,29 @@ def general_match_server(input, output, session):
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        fig = px.scatter(small_team_averages, x="allTeleop", y="autoEnd", title="Average Teleop v. Auto and Endgame",
-                         hover_name="Team and Robot",
-                         hover_data={
-                         "allTeleop": ":.1f",
-                         "autoEnd": ":.1f",
-                         "allPoints": ":.1f",
-                         "Team and Robot": False
-                         },
-                         labels={
-                         "allTeleop": "Teleop Points",
-                         "autoEnd": "Auto + Endgame Points",
-                         "Team and Robot": "Team",
-                         "allPoints": "Total Points"
-                         },
-                        )
+        fig = px.scatter(
+            small_team_averages,
+            x="allTeleop",
+            y="autoEnd",
+            title="Average Teleop v. Auto and Endgame",
+            hover_name="Team and Robot",
+            hover_data={
+                "allTeleop": ":.1f",
+                "autoEnd": ":.1f",
+                "allPoints": ":.1f",
+                "Team and Robot": False,
+            },
+            labels={
+                "allTeleop": "Teleop Points",
+                "autoEnd": "Auto + Endgame Points",
+                "Team and Robot": "Team",
+                "allPoints": "Total Points",
+            },
+        )
 
         fig.update_traces(
-        marker=dict(size=8),
-        textposition="top center",
+            marker=dict(size=8),
+            textposition="top center",
         )
 
         return fig
