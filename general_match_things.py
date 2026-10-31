@@ -4,9 +4,14 @@ import plotly.express as px
 from shiny import reactive, render, module
 from shiny import App, ui
 from shinywidgets import output_widget, render_widget
-from data_container import load_scouted_data, match_numbers, team_numbers, match_sched
+from data_container import (
+    load_scouted_data,
+    match_numbers,
+    team_numbers,
+    match_sched,
+    scouted_data,
+)
 
-scouted_data = load_scouted_data()
 team_averages = (
     scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
 )
@@ -28,7 +33,7 @@ def general_match_ui():
             ui.navset_tab(
                 ui.nav_panel(
                     "Overall",
-                    ui.card(output_widget("teleop_vs_auto_scatter")),
+                    ui.card(output_widget("teleop_vs_autoend_scatter")),
                 ),
                 ui.nav_panel(
                     "Auto",
@@ -71,22 +76,22 @@ def general_match_server(input, output, session):
         else:
             return ui.div(
                 ui.input_select(
-                    "team1", "Team 1:", choices=team_numbers, selected="3504"
+                    "team1", "Team 1:", choices=team_numbers, selected=team_numbers[0]
                 ),
                 ui.input_select(
-                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[0]
+                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[1]
                 ),
                 ui.input_select(
-                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[1]
+                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[2]
                 ),
                 ui.input_select(
-                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[2]
+                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[3]
                 ),
                 ui.input_select(
-                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[3]
+                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[4]
                 ),
                 ui.input_select(
-                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
+                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[5]
                 ),
             )
 
@@ -112,11 +117,36 @@ def general_match_server(input, output, session):
         return scouted_data().loc[team_numbers.isin(teams)]
 
     @render_widget
-    def teleop_vs_auto_scatter():
+    def teleop_vs_autoend_scatter():
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
-        fig = px.scatter(small_team_averages, x="")
+        fig = px.scatter(
+            small_team_averages,
+            x="teleopAll",
+            y="autoEnd",
+            title="Average Teleop v. Auto and Endgame",
+            hover_name="Team and Robot",
+            hover_data={
+                "teleopAll": ":.1f",
+                "autoEnd": ":.1f",
+                "allPoints": ":.1f",
+                "Team and Robot": False,
+            },
+            labels={
+                "teleopAll": "Teleop Points",
+                "autoEnd": "Auto + Endgame Points",
+                "Team and Robot": "Team",
+                "allPoints": "Total Points",
+            },
+        )
+
+        fig.update_traces(
+            marker=dict(size=8),
+            textposition="top center",
+        )
+
+        return fig
 
     @render_widget
     def teleop_vs_auto_scatter():
