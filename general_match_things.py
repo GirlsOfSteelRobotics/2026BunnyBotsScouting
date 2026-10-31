@@ -93,24 +93,6 @@ def general_match_server(input, output, session):
                 ui.input_select(
                     "team6", "Team 6:", choices=team_numbers, selected=team_numbers[5]
                 ),
-                ui.input_select(
-                    "team1", "Team 1:", choices=team_numbers, selected="3504"
-                ),
-                ui.input_select(
-                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[0]
-                ),
-                ui.input_select(
-                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[1]
-                ),
-                ui.input_select(
-                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[2]
-                ),
-                ui.input_select(
-                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[3]
-                ),
-                ui.input_select(
-                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
-                ),
             )
 
     def get_teams_in_selected_match():
@@ -141,18 +123,18 @@ def general_match_server(input, output, session):
         small_team_averages = team_averages[indices]
         fig = px.scatter(
             small_team_averages,
-            x="allTeleop",
+            x="teleopAll",
             y="autoEnd",
             title="Average Teleop v. Auto and Endgame",
             hover_name="Team and Robot",
             hover_data={
-                "allTeleop": ":.1f",
+                "teleopAll": ":.1f",
                 "autoEnd": ":.1f",
                 "allPoints": ":.1f",
                 "Team and Robot": False,
             },
             labels={
-                "allTeleop": "Teleop Points",
+                "teleopAll": "Teleop Points",
                 "autoEnd": "Auto + Endgame Points",
                 "Team and Robot": "Team",
                 "allPoints": "Total Points",
