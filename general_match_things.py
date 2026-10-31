@@ -119,12 +119,20 @@ def general_match_server(input, output, session):
         fig = px.scatter(small_team_averages, x="")
 
     @render_widget
+    def teleop_vs_auto_scatter():
+        teams_in_match = get_teams_in_selected_match()
+        indices = team_averages["Team and Robot"].isin(teams_in_match)
+        small_team_averages = team_averages[indices]
+        fig = px.scatter(
+            small_team_averages,
+            x="",
+            y="",
+            title="Teleop vs Auto+Endgame Points per Team",
+        )
+
+    @render_widget
     def auto_cross_kitchen_line():
         # avg # times cross kitchen line
-        teams_in_match = get_teams_in_selected_match()
-
-    def auto_carrot_cake_pantry_box():
-        # L1, L2, L3 pantry carrot cake auto (stacked bar)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
