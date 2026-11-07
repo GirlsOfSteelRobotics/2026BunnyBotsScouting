@@ -75,6 +75,33 @@ def load_scouted_data():
     scouted_data["Harvest Haul Carrot Cake Points"] = (
         scouted_data["Harvest Haul Carrot Cakes"] * 3
     )
+    scouted_data["autoAll"] = (
+        scouted_data["autoCarrotO"]
+        + scouted_data["autoCarrotCakeO"]
+        + scouted_data["autoCarrotL1"]
+        + scouted_data["autoCarrotL2"]
+        + scouted_data["autoCarrotL3"]
+        + scouted_data["autoCarrotCakeL1"]
+        + scouted_data["autoCarrotCakeL2"]
+        + scouted_data["autoCarrotCakeL3"]
+    )
+    scouted_data["teleopAll"] = (
+        scouted_data["telCarrotO"]
+        + scouted_data["telCarrotCakeO"]
+        + scouted_data["telCarrotL1"]
+        + scouted_data["telCarrotL2"]
+        + scouted_data["telCarrotL3"]
+        + scouted_data["telCarrotCakeL1"]
+        + scouted_data["telCarrotCakeL2"]
+        + scouted_data["telCarrotCakeL3"]
+    )
+    scouted_data["endgameAll"] = (
+        scouted_data["Harvest Haul Carrots"] + scouted_data["Harvest Haul Carrot Cakes"]
+    )
+    scouted_data["allPoints"] = (
+        scouted_data["teleopAll"] + scouted_data["autoAll"] + scouted_data["endgameAll"]
+    )
+    scouted_data["autoEnd"] = scouted_data["autoAll"] + scouted_data["endgameAll"]
 
     scouted_data["Endgame Points"] = (
         scouted_data["parkPoints"]
@@ -168,7 +195,7 @@ def load_match_sched():
 
 match_sched = load_match_sched()
 
-# lists that I don't want to make again
+# variables that i dont want to make again
 match_numbers = sorted(list(load_match_sched()["Match Number"]), key=int)
 team_numbers = sorted(
     match_sched["R1"].tolist()
@@ -179,3 +206,4 @@ team_numbers = sorted(
     + match_sched["B3"].tolist(),
     key=int,
 )
+scouted_data = load_scouted_data()
