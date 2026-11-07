@@ -123,53 +123,21 @@ def general_match_server(input, output, session):
         small_team_averages = team_averages[indices]
         fig = px.scatter(
             small_team_averages,
-            x="teleopAll",
-            y="autoEnd",
+            x="Total Teleop Points",
+            y="Auto and Endgame Points",
             title="Average Teleop v. Auto and Endgame",
             hover_name="Team and Robot",
             hover_data={
-                "teleopAll": ":.1f",
-                "autoEnd": ":.1f",
-                "allPoints": ":.1f",
+                "Total Teleop Points": ":.1f",
+                "Auto and Endgame Points": ":.1f",
+                "Total Points": ":.1f",
                 "Team and Robot": False,
             },
             labels={
-                "teleopAll": "Teleop Points",
-                "autoEnd": "Auto + Endgame Points",
+                "Total Teleop Points": "Teleop Points",
+                "Auto and Endgame Points": "Auto + Endgame Points",
                 "Team and Robot": "Team",
-                "allPoints": "Total Points",
-            },
-        )
-
-        fig.update_traces(
-            marker=dict(size=8),
-            textposition="top center",
-        )
-
-        return fig
-
-    @render_widget
-    def teleop_vs_autoend_scatter():
-        teams_in_match = get_teams_in_selected_match()
-        indices = team_averages["Team and Robot"].isin(teams_in_match)
-        small_team_averages = team_averages[indices]
-        fig = px.scatter(
-            small_team_averages,
-            x="teleopAll",
-            y="autoEnd",
-            title="Average Teleop v. Auto and Endgame",
-            hover_name="Team and Robot",
-            hover_data={
-                "teleopAll": ":.1f",
-                "autoEnd": ":.1f",
-                "allPoints": ":.1f",
-                "Team and Robot": False,
-            },
-            labels={
-                "teleopAll": "Teleop Points",
-                "autoEnd": "Auto + Endgame Points",
-                "Team and Robot": "Team",
-                "allPoints": "Total Points",
+                "Total Points": "Total Points",
             },
         )
 
