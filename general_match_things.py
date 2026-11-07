@@ -19,6 +19,7 @@ team_averages = (
 )
 
 blue_stacked=["#0E3964","#236194","#619DC3"]
+red_stacked=["#730F1A","#AB0D0C","D42626"]
 
 @module.ui
 def general_match_ui():
@@ -115,6 +116,19 @@ def general_match_server(input, output, session):
             ]
         return teams
 
+    def get_stacked_colors():
+        teams = get_teams_in_selected_match()
+        blue_teams = teams[0:3]
+        red_teams = teams[3:6]
+        color_map = {str(teams): [blue_stacked] for teams in blue_teams}
+        color_map.update({str(teams): [red_stacked] for teams in red_teams})
+        output = dict(
+            color="Team and Robot",
+            color_discrete_sequence=color_map,
+        )
+        print(output)
+        return output
+
     def get_teams_in_match_data():
         teams = get_teams_in_selected_match()
         return scouted_data().loc[team_numbers.isin(teams)]
@@ -141,7 +155,7 @@ def general_match_server(input, output, session):
                 "autoEnd": "Auto + Endgame Points",
                 "Team and Robot": "Team",
                 "allPoints": "Total Points",
-            },
+            }
         )
 
         fig.update_traces(
@@ -177,17 +191,6 @@ def general_match_server(input, output, session):
         )
         return fig
 
-    def get_box_plot_colors():
-        teams = get_teams_in_selected_match()
-        blue_teams = teams[0:3]
-        red_teams = teams[3:6]
-        color_map = {str(team): "#961410" for team in blue_teams}
-        color_map.update({str(team): "4577b0" for team in red_teams})
-        return dict(
-            color="Team Number",
-            color_discrete_map=color_map,
-        )
-
     @render_widget
     def auto_carrot_pantry_bar():
         # L1, L2, L3 pantry carrot auto (stacked bar)
@@ -214,8 +217,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["autoCarrotCakeL1", "autoCarrotCakeL2", "autoCarrotCakeL3"],
             title="# of Carrot Cakes Scored in Pantry per Team in Auto",
-            color_discrete_sequence=blue_stacked,
-            title="Number of Carrot Cakes Scored in Pantry per Team in Auto",
+            **get_stacked_colors()
         )
         return fig
 
