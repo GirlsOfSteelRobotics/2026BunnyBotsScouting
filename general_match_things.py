@@ -19,7 +19,7 @@ team_averages = (
 )
 
 blue_stacked=["#0E3964","#236194","#619DC3"]
-red_stacked=["#730F1A","#AB0D0C","D42626"]
+red_stacked=["#730F1A","#AB0D0C","#D42626"]
 
 @module.ui
 def general_match_ui():
@@ -116,22 +116,14 @@ def general_match_server(input, output, session):
             ]
         return teams
 
-    def get_stacked_colors():
-        teams = get_teams_in_selected_match()
-        blue_teams = teams[0:3]
-        red_teams = teams[3:6]
-        color_map = {str(teams): [blue_stacked] for teams in blue_teams}
-        color_map.update({str(teams): [red_stacked] for teams in red_teams})
-        output = dict(
-            color="Team and Robot",
-            color_discrete_sequence=color_map,
-        )
-        print(output)
-        return output
-
-    def get_teams_in_match_data():
-        teams = get_teams_in_selected_match()
-        return scouted_data().loc[team_numbers.isin(teams)]
+    def stacked_colors(fig):
+        for i, trace in enumerate(fig.data):
+            teams = get_teams_in_selected_match()
+            red_teams = teams[3:6]
+            fig.data[i].marker.color = [
+                red_stacked[i] if str(t) in [str(x) for x in red_teams] else blue_stacked[i]
+                for t in scouted_data["Team and Robot"]
+            ]
 
     @render_widget
     def teleop_vs_auto_scatter():
@@ -177,6 +169,7 @@ def general_match_server(input, output, session):
             y="Auto Cross Kitchen Line",
             title="Average Times Each Team Crosses the Kitchen Line",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -191,6 +184,7 @@ def general_match_server(input, output, session):
             y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
             title="Number of Carrots Scored in Pantry Per Team in Auto",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -204,9 +198,9 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotCakeL1", "autoCarrotCakeL2", "autoCarrotCakeL3"],
-            title="# of Carrot Cakes Scored in Pantry per Team in Auto",
-            **get_stacked_colors()
+            title="# of Carrot Cakes Scored in Pantry per Team in Auto"
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -245,6 +239,7 @@ def general_match_server(input, output, session):
             y=["autoCarrotO", "autoCarrotCakeO"],
             title="Number of Carrots and Carrot Cakes Scored in Oven per Team in Auto",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -282,6 +277,7 @@ def general_match_server(input, output, session):
             y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
             title="Number of Carrots Scored in Pantry per Team in Teleop",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -295,6 +291,7 @@ def general_match_server(input, output, session):
             y=["telCarrotCakeL1", "telCarrotCakeL2", "telCarrotCakeL3"],
             title="Number of Carrot Cakes Scored in Pantry Per Team in Teleop",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -332,6 +329,7 @@ def general_match_server(input, output, session):
             y=["telCarrotO", "telCarrotCakeO"],
             title="Number of Carrots and Carrot Cakes Scored in Oven per Team in Teleop",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -356,6 +354,7 @@ def general_match_server(input, output, session):
             y=["telCarrotCakeO"],
             title="Number of Carrot Cakes Scored in Oven during Teleop",
         )
+
         return fig
 
     @render_widget
@@ -373,6 +372,7 @@ def general_match_server(input, output, session):
             ],
             title="Harvest Haul Carrots and Carrot Cake Points while Parked in Endgame per Team",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -384,8 +384,9 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["telCarrotO"],
-            title="# of Carrots Scored in Oven by a Team for Tele",
+            title="# of Carrots Scored in Oven by a Team for Tele"
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -399,6 +400,7 @@ def general_match_server(input, output, session):
             y=["autoCarrotO"],
             title="# of Carrots Scored in Oven by a Team for Auto",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -412,6 +414,7 @@ def general_match_server(input, output, session):
             y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
             title="# of cakes scored in pantry per team in tele",
         )
+        stacked_colors(fig)
         return fig
 
     @render_widget
@@ -425,5 +428,6 @@ def general_match_server(input, output, session):
             y=["autoCarrotL1", "autoCarrotL2", "autoCarrotL3"],
             title="# of carrots scored in pantry per team in auto",
         )
+        stacked_colors(fig)
         return fig
 
