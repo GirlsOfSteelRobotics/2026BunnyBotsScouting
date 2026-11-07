@@ -33,7 +33,7 @@ def general_match_ui():
             ui.navset_tab(
                 ui.nav_panel(
                     "Overall",
-                    ui.card(output_widget("teleop_vs_autoend_scatter")),
+                    ui.card(output_widget("teleop_vs_auto_scatter")),
                 ),
                 ui.nav_panel(
                     "Auto",
@@ -117,27 +117,27 @@ def general_match_server(input, output, session):
         return scouted_data().loc[team_numbers.isin(teams)]
 
     @render_widget
-    def teleop_vs_autoend_scatter():
+    def teleop_vs_auto_scatter():
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
         fig = px.scatter(
             small_team_averages,
-            x="teleopAll",
-            y="autoEnd",
+            x="Total Teleop Points",
+            y="Auto and Endgame Points",
             title="Average Teleop v. Auto and Endgame",
             hover_name="Team and Robot",
             hover_data={
-                "teleopAll": ":.1f",
-                "autoEnd": ":.1f",
-                "allPoints": ":.1f",
+                "Total Teleop Points": ":.1f",
+                "Auto and Endgame Points": ":.1f",
+                "Total Points": ":.1f",
                 "Team and Robot": False,
             },
             labels={
-                "teleopAll": "Teleop Points",
-                "autoEnd": "Auto + Endgame Points",
+                "Total Teleop Points": "Teleop Points",
+                "Auto and Endgame Points": "Auto + Endgame Points",
                 "Team and Robot": "Team",
-                "allPoints": "Total Points",
+                "Total Points": "Total Points",
             },
         )
 
@@ -147,18 +147,6 @@ def general_match_server(input, output, session):
         )
 
         return fig
-
-    @render_widget
-    def teleop_vs_auto_scatter():
-        teams_in_match = get_teams_in_selected_match()
-        indices = team_averages["Team and Robot"].isin(teams_in_match)
-        small_team_averages = team_averages[indices]
-        fig = px.scatter(
-            small_team_averages,
-            x="",
-            y="",
-            title="Teleop vs Auto+Endgame Points per Team",
-        )
 
     @render_widget
     def auto_cross_kitchen_line():
