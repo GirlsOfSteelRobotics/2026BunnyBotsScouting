@@ -266,7 +266,7 @@ def general_match_server(input, output, session):
         fig = px.box(
             result,
             x="Team and Robot",
-            y=["telCarrot"],
+            y=["telCarrotCakeL1", "telCarrotCakeL2", "telCarrotCakeL3"],
             title="Number of Carrot Cakes Scored in Pantry during Teleop",
         )
         return fig

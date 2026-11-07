@@ -27,4 +27,4 @@ def overview_tab_ui():
 def overview_tab_server(input, output, session):
     @render_widget
     def placeholder():
-        print("hello, world!")
+        print("hello")
