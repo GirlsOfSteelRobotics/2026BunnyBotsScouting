@@ -76,7 +76,6 @@ def load_scouted_data():
         scouted_data["Harvest Haul Carrot Cakes"] * 3
     )
 
-
     scouted_data["Endgame Points"] = (
         scouted_data["parkPoints"]
         + scouted_data["Harvest Haul Carrot Points"]
