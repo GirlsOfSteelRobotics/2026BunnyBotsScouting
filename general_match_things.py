@@ -76,22 +76,22 @@ def general_match_server(input, output, session):
         else:
             return ui.div(
                 ui.input_select(
-                    "team1", "Team 1:", choices=team_numbers, selected="3504"
+                    "team1", "Team 1:", choices=team_numbers, selected=team_numbers[0]
                 ),
                 ui.input_select(
-                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[0]
+                    "team2", "Team 2:", choices=team_numbers, selected=team_numbers[1]
                 ),
                 ui.input_select(
-                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[1]
+                    "team3", "Team 3:", choices=team_numbers, selected=team_numbers[2]
                 ),
                 ui.input_select(
-                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[2]
+                    "team4", "Team 4:", choices=team_numbers, selected=team_numbers[3]
                 ),
                 ui.input_select(
-                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[3]
+                    "team5", "Team 5:", choices=team_numbers, selected=team_numbers[4]
                 ),
                 ui.input_select(
-                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[4]
+                    "team6", "Team 6:", choices=team_numbers, selected=team_numbers[5]
                 ),
             )
 
@@ -117,7 +117,7 @@ def general_match_server(input, output, session):
         return scouted_data().loc[team_numbers.isin(teams)]
 
     @render_widget
-    def teleop_vs_autoend_scatter():
+    def teleop_vs_auto_scatter():
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
@@ -151,10 +151,6 @@ def general_match_server(input, output, session):
     @render_widget
     def auto_cross_kitchen_line():
         # avg # times cross kitchen line
-        teams_in_match = get_teams_in_selected_match()
-
-    def auto_carrot_cake_pantry_box():
-        # L1, L2, L3 pantry carrot cake auto (stacked bar)
         teams_in_match = get_teams_in_selected_match()
         indices = team_averages["Team and Robot"].isin(teams_in_match)
         small_team_averages = team_averages[indices]
