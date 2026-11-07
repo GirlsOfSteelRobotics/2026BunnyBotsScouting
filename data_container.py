@@ -146,10 +146,14 @@ def load_scouted_data():
         + scouted_data["telCarrotCakeL3"] * 12
     )
 
+    scouted_data["Auto and Endgame Points"] = (
+        scouted_data["Total Auto Points"] + scouted_data["Endgame Points"]
+    )
+
     scouted_data["Total Points"] = (
-        scouted_data["Total Auto"]
-        + scouted_data["Total Teleop"]
-        + scouted_data["parkPoints"]
+        scouted_data["Total Auto Points"]
+        + scouted_data["Total Teleop Points"]
+        + scouted_data["Endgame Points"]
     )
 
     return scouted_data
