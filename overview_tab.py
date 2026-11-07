@@ -30,9 +30,9 @@ def overview_tab_server(input, output, session):
 
         fig = px.scatter(
             team_averages,
-            x="teleopAll",
-            y="autoEnd",
-            color="allPoints",
+            x="Total Teleop Points",
+            y="Auto and Endgame Points",
+            color="Total Points",
             color_continuous_scale="Plasma",
             title="Teleop v. Auto + Endgame Points",
             text="Team and Robot",
@@ -44,10 +44,10 @@ def overview_tab_server(input, output, session):
                 "Team and Robot": False,
             },
             labels={
-                "teleopAll": "Teleop Points",
-                "autoEnd": "Auto + Endgame Points",
+                "Total Teleop Points": "Teleop Points",
+                "Auto and Endgame Points": "Auto + Endgame Points",
                 "Team and Robot": "Team",
-                "allPoints": "Total Points",
+                "Total Points": "Total Points",
             },
         )
 
