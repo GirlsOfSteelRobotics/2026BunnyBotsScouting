@@ -50,4 +50,164 @@ def load_scouted_data():
     )
     scouted_data["Team and Robot"] = scouted_data["Team and Robot"].astype(str)
 
+    scouted_data["telCarrot"] = (
+        scouted_data["telCarrotL1"]
+        + scouted_data["telCarrotL2"]
+        + scouted_data["telCarrotL3"]
+    )
+    scouted_data["telCarrotCake"] = (
+        scouted_data["telCarrotCakeL1"]
+        + scouted_data["telCarrotCakeL2"]
+        + scouted_data["telCarrotCakeL3"]
+    )
+    scouted_data["autoCarrot"] = (
+        scouted_data["autoCarrotL1"]
+        + scouted_data["autoCarrotL2"]
+        + scouted_data["autoCarrotL3"]
+    )
+    scouted_data["autoCarrotCake"] = (
+        scouted_data["autoCarrotCakeL1"]
+        + scouted_data["autoCarrotCakeL2"]
+        + scouted_data["autoCarrotCakeL3"]
+    )
+    scouted_data["parkPoints"] = scouted_data["Park"] * 2
+    scouted_data["Harvest Haul Carrot Points"] = scouted_data["Harvest Haul Carrots"]
+    scouted_data["Harvest Haul Carrot Cake Points"] = (
+        scouted_data["Harvest Haul Carrot Cakes"] * 3
+    )
+    scouted_data["autoAll"] = (
+        scouted_data["autoCarrotO"]
+        + scouted_data["autoCarrotCakeO"]
+        + scouted_data["autoCarrotL1"]
+        + scouted_data["autoCarrotL2"]
+        + scouted_data["autoCarrotL3"]
+        + scouted_data["autoCarrotCakeL1"]
+        + scouted_data["autoCarrotCakeL2"]
+        + scouted_data["autoCarrotCakeL3"]
+    )
+    scouted_data["teleopAll"] = (
+        scouted_data["telCarrotO"]
+        + scouted_data["telCarrotCakeO"]
+        + scouted_data["telCarrotL1"]
+        + scouted_data["telCarrotL2"]
+        + scouted_data["telCarrotL3"]
+        + scouted_data["telCarrotCakeL1"]
+        + scouted_data["telCarrotCakeL2"]
+        + scouted_data["telCarrotCakeL3"]
+    )
+    scouted_data["endgameAll"] = (
+        scouted_data["Harvest Haul Carrots"] + scouted_data["Harvest Haul Carrot Cakes"]
+    )
+    scouted_data["allPoints"] = (
+        scouted_data["teleopAll"] + scouted_data["autoAll"] + scouted_data["endgameAll"]
+    )
+    scouted_data["autoEnd"] = scouted_data["autoAll"] + scouted_data["endgameAll"]
+
+    scouted_data["Endgame Points"] = (
+        scouted_data["parkPoints"]
+        + scouted_data["Harvest Haul Carrot Points"]
+        + scouted_data["Harvest Haul Carrot Cake Points"]
+    )
+
+    scouted_data["totalAutoOven"] = (
+        scouted_data["autoCarrotO"] + scouted_data["autoCarrotCakeO"]
+    )
+
+    scouted_data["totalTelOven"] = (
+        scouted_data["telCarrotO"] + scouted_data["telCarrotCakeO"]
+    )
+
+    scouted_data["Oven Scoring"] = (
+        scouted_data["totalAutoOven"] + scouted_data["totalTelOven"]
+    )
+
+    scouted_data["Auto Pantry"] = (
+        scouted_data["autoCarrot"] + scouted_data["autoCarrotCake"]
+    )
+
+    scouted_data["Teleop Pantry"] = (
+        scouted_data["telCarrot"] + scouted_data["telCarrotCake"]
+    )
+
+    scouted_data["Pantry Scoring"] = (
+        scouted_data["Auto Pantry"] + scouted_data["Teleop Pantry"]
+    )
+
+    scouted_data["Carrots"] = (
+        scouted_data["autoCarrot"]
+        + scouted_data["autoCarrotO"]
+        + scouted_data["telCarrot"]
+        + scouted_data["telCarrotO"]
+        + scouted_data["Harvest Haul Carrots"]
+    )
+
+    scouted_data["Carrot Cakes"] = (
+        scouted_data["autoCarrotCake"]
+        + scouted_data["autoCarrotCakeO"]
+        + scouted_data["telCarrotCake"]
+        + scouted_data["telCarrotCakeO"]
+        + scouted_data["Harvest Haul Carrot Cakes"]
+    )
+
+    scouted_data["Total Auto Points"] = (
+        scouted_data["autoCarrotO"] * 2
+        + scouted_data["autoCarrotCakeO"] * 1
+        + scouted_data["autoCarrotL1"] * 3
+        + scouted_data["autoCarrotL2"] * 4
+        + scouted_data["autoCarrotL3"] * 5
+        + scouted_data["autoCarrotCakeL1"] * 8
+        + scouted_data["autoCarrotCakeL2"] * 10
+        + scouted_data["autoCarrotCakeL3"] * 12
+        + scouted_data["Auto Cross Kitchen Line"] * 2
+    )
+
+    scouted_data["Total Teleop Points"] = (
+        scouted_data["telCarrotO"] * 2
+        + scouted_data["telCarrotCakeO"] * 1
+        + scouted_data["telCarrotL1"] * 3
+        + scouted_data["telCarrotL2"] * 4
+        + scouted_data["telCarrotL3"] * 5
+        + scouted_data["telCarrotCakeL1"] * 8
+        + scouted_data["telCarrotCakeL2"] * 10
+        + scouted_data["telCarrotCakeL3"] * 12
+    )
+
+    scouted_data["Auto and Endgame Points"] = (
+        scouted_data["Total Auto Points"] + scouted_data["Endgame Points"]
+    )
+
+    scouted_data["Total Points"] = (
+        scouted_data["Total Auto Points"]
+        + scouted_data["Total Teleop Points"]
+        + scouted_data["Endgame Points"]
+    )
+
     return scouted_data
+
+
+def load_match_sched():
+    match_sched = pd.read_csv(SCRIPT_DIRECTORY / f"data/mock_data/match_schedule.csv")
+    match_sched["Match Number"] = match_sched["Match Number"].astype(str)
+    match_sched["R1"] = match_sched["R1"].astype(str)
+    match_sched["R2"] = match_sched["R2"].astype(str)
+    match_sched["R3"] = match_sched["R3"].astype(str)
+    match_sched["B1"] = match_sched["B1"].astype(str)
+    match_sched["B2"] = match_sched["B2"].astype(str)
+    match_sched["B3"] = match_sched["B3"].astype(str)
+    return match_sched
+
+
+match_sched = load_match_sched()
+
+# variables that i dont want to make again
+match_numbers = sorted(list(load_match_sched()["Match Number"]), key=int)
+team_numbers = sorted(
+    match_sched["R1"].tolist()
+    + match_sched["R2"].tolist()
+    + match_sched["R3"].tolist()
+    + match_sched["B1"].tolist()
+    + match_sched["B2"].tolist()
+    + match_sched["B3"].tolist(),
+    key=int,
+)
+scouted_data = load_scouted_data()
