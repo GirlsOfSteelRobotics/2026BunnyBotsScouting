@@ -38,7 +38,7 @@ SCOUTED_COLUMNS = [
     "Scoring Effectiveness",
     "Defense Skill",
     "Yellow/Red Card",
-    "Comments"
+    "Comments",
 ]
 
 SCRIPT_DIRECTORY = pathlib.Path(__file__).resolve().parent

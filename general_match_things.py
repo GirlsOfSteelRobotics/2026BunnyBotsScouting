@@ -18,8 +18,9 @@ team_averages = (
     scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
 )
 
-blue_stacked=["#0E3964","#236194","#619DC3"]
-red_stacked=["#730F1A","#AB0D0C","#D42626"]
+blue_stacked = ["#0E3964", "#236194", "#619DC3"]
+red_stacked = ["#730F1A", "#AB0D0C", "#D42626"]
+
 
 @module.ui
 def general_match_ui():
@@ -121,7 +122,11 @@ def general_match_server(input, output, session):
             teams = get_teams_in_selected_match()
             red_teams = teams[3:6]
             fig.data[i].marker.color = [
-                red_stacked[i] if str(t) in [str(x) for x in red_teams] else blue_stacked[i]
+                (
+                    red_stacked[i]
+                    if str(t) in [str(x) for x in red_teams]
+                    else blue_stacked[i]
+                )
                 for t in scouted_data["Team and Robot"]
             ]
 
@@ -198,7 +203,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotCakeL1", "autoCarrotCakeL2", "autoCarrotCakeL3"],
-            title="# of Carrot Cakes Scored in Pantry per Team in Auto"
+            title="# of Carrot Cakes Scored in Pantry per Team in Auto",
         )
         stacked_colors(fig)
         return fig
@@ -223,7 +228,7 @@ def general_match_server(input, output, session):
             result,
             x="Team and Robot",
             y=["autoCarrotCake"],
-            title="Number of Carrot Cakes Scored in Pantry during Auto"
+            title="Number of Carrot Cakes Scored in Pantry during Auto",
         )
         return fig
 
@@ -384,7 +389,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["telCarrotO"],
-            title="# of Carrots Scored in Oven by a Team for Tele"
+            title="# of Carrots Scored in Oven by a Team for Tele",
         )
         stacked_colors(fig)
         return fig
@@ -430,4 +435,3 @@ def general_match_server(input, output, session):
         )
         stacked_colors(fig)
         return fig
-
