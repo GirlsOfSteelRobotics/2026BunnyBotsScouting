@@ -33,14 +33,14 @@ def overview_tab_server(input, output, session):
             x="Total Teleop Points",
             y="Auto and Endgame Points",
             color="Total Points",
-            color_continuous_scale="Plasma",
+            color_continuous_scale="ylorrd_r",
             title="Teleop v. Auto + Endgame Points",
             text="Team and Robot",
             hover_name="Team and Robot",
             hover_data={
-                "teleopAll": ":.1f",
-                "autoEnd": ":.1f",
-                "allPoints": ":.1f",
+                "Total Teleop Points": ":.1f",
+                "Auto and Endgame Points": ":.1f",
+                "Total Points": ":.1f",
                 "Team and Robot": False,
             },
             labels={
