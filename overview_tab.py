@@ -30,7 +30,7 @@ def overview_tab_ui():
                 "Endgame Points",
                 "Total Points",
                 "Carrots",
-                "Carrot Cakes"
+                "Carrot Cakes",
             ],
         ),
         ui.input_radio_buttons(
