@@ -15,6 +15,10 @@ from data_container import (
 team_averages = (
     scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
 )
+# don't include data for no-show so it doesn't skew the data?
+# team_averages = (
+#     scouted_data[~scouted_data["No Show"]].groupby("Team and Robot").mean(numeric_only=True).reset_index()
+# )
 
 
 @module.ui
