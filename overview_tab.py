@@ -85,7 +85,7 @@ def overview_tab_server(input, output, session):
 
         fig = px.scatter(
             team_averages,
-            x="Total Teleop Points",
+            x="Teleop Points",
             y="Auto and Endgame Points",
             color="Total Points",
             color_continuous_scale="ylorrd_r",
@@ -93,13 +93,13 @@ def overview_tab_server(input, output, session):
             text="Team and Robot",
             hover_name="Team and Robot",
             hover_data={
-                "Total Teleop Points": ":.1f",
+                "Teleop Points": ":.1f",
                 "Auto and Endgame Points": ":.1f",
                 "Total Points": ":.1f",
                 "Team and Robot": False,
             },
             labels={
-                "Total Teleop Points": "Teleop Points",
+                "Teleop Points": "Teleop Points",
                 "Auto and Endgame Points": "Auto + Endgame Points",
                 "Team and Robot": "Team",
                 "Total Points": "Total Points",

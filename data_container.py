@@ -122,7 +122,7 @@ def load_scouted_data():
         + scouted_data["Harvest Haul Carrot Cakes"]
     )
 
-    scouted_data["Total Auto Points"] = (
+    scouted_data["Auto Points"] = (
         scouted_data["autoCarrotO"] * 2
         + scouted_data["autoCarrotCakeO"] * 1
         + scouted_data["autoCarrotL1"] * 3
@@ -134,7 +134,7 @@ def load_scouted_data():
         + scouted_data["Auto Cross Kitchen Line"] * 2
     )
 
-    scouted_data["Total Teleop Points"] = (
+    scouted_data["Teleop Points"] = (
         scouted_data["telCarrotO"] * 2
         + scouted_data["telCarrotCakeO"] * 1
         + scouted_data["telCarrotL1"] * 3
@@ -146,12 +146,12 @@ def load_scouted_data():
     )
 
     scouted_data["Auto and Endgame Points"] = (
-        scouted_data["Total Auto Points"] + scouted_data["Endgame Points"]
+        scouted_data["Auto Points"] + scouted_data["Endgame Points"]
     )
 
     scouted_data["Total Points"] = (
-        scouted_data["Total Auto Points"]
-        + scouted_data["Total Teleop Points"]
+        scouted_data["Auto Points"]
+        + scouted_data["Teleop Points"]
         + scouted_data["Endgame Points"]
     )
 
