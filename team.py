@@ -17,10 +17,15 @@ def add_breakdown_columns(df):
     df["Oven Carrot Cakes"] = df["autoCarrotCakeO"] + df["telCarrotCakeO"]
 
     for lvl in ("L1", "L2", "L3"):
-        df[f"Teleop Pantry {lvl} (carrots + cakes)"] = (df[f"telCarrot{lvl}"] + df[f"telCarrotCake{lvl}"])
-    df["Auto Pantry (total, no levels tracked)"] = (df["autoCarrot"] + df["autoCarrotCake"])
+        df[f"Teleop Pantry {lvl} (carrots + cakes)"] = (
+            df[f"telCarrot{lvl}"] + df[f"telCarrotCake{lvl}"]
+        )
+    df["Auto Pantry (total, no levels tracked)"] = (
+        df["autoCarrot"] + df["autoCarrotCake"]
+    )
 
     return df
+
 
 match_df = add_breakdown_columns(match_df)
 
@@ -119,7 +124,9 @@ def pit_overview_tab_server(input, output, session):
         if team_df.empty:
             return px.scatter(title=f"No match data for Team {team}")
 
-        team_df["Match Number"] = pd.to_numeric(team_df["Match Number"], errors="coerce")
+        team_df["Match Number"] = pd.to_numeric(
+            team_df["Match Number"], errors="coerce"
+        )
         team_df = team_df.dropna(subset=["Match Number"]).sort_values("Match Number")
 
         long_df = team_df.melt(
