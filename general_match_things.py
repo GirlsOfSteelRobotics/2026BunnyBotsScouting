@@ -49,7 +49,9 @@ def general_match_ui():
                     ui.card(output_widget("auto_carrot_cake_pantry_box")),
                     ui.card(output_widget("auto_carrot_carrot_cake_oven_bar")),
                     ui.card(output_widget("auto_carrot_oven_box")),
+                    ui.card(output_widget("auto_carrot_oven")),
                     ui.card(output_widget("auto_carrot_cake_oven_box")),
+                    ui.card(output_widget("auto_carrot_cake_oven")),
                 ),
                 ui.nav_panel(
                     "Teleop",
@@ -59,7 +61,9 @@ def general_match_ui():
                     ui.card(output_widget("tele_carrot_cake_pantry_box")),
                     ui.card(output_widget("tele_carrot_carrot_cake_oven")),
                     ui.card(output_widget("tele_carrot_oven_box")),
+                    ui.card(output_widget("tele_carrot_oven")),
                     ui.card(output_widget("tele_carrot_cake_oven_box")),
+                    ui.card(output_widget("tele_carrot_cake_oven")),
                 ),
                 ui.nav_panel(
                     "Endgame",
