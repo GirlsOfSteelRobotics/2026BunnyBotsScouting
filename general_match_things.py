@@ -15,7 +15,10 @@ from data_container import (
 )
 
 team_averages = (
-    scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
+    scouted_data[~scouted_data["No Show"]]
+    .groupby("Team and Robot")
+    .mean(numeric_only=True)
+    .reset_index()
 )
 
 blue_stacked = ["#0E3964", "#236194", "#619DC3"]
