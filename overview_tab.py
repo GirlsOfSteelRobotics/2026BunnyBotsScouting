@@ -9,13 +9,13 @@ import numpy as np
 
 pd.set_option("display.max_columns", None)
 
+
 team_averages = (
-    scouted_data.groupby("Team and Robot").mean(numeric_only=True).reset_index()
+    scouted_data[~scouted_data["No Show"]]
+    .groupby("Team and Robot")
+    .mean(numeric_only=True)
+    .reset_index()
 )
-# don't include data for no-show so it doesn't skew the data?
-# team_averages = (
-#     scouted_data[~scouted_data["No Show"]].groupby("Team and Robot").mean(numeric_only=True).reset_index()
-# )
 
 
 @module.ui
@@ -35,7 +35,7 @@ def overview_tab_ui():
         ),
         ui.input_radio_buttons(
             "selection_mode",
-            "Select By:",
+            "Sort By:",
             choices=["Team Number", "Stat"],
             selected="Team Number",
         ),
