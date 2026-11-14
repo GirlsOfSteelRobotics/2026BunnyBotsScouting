@@ -25,12 +25,14 @@ def overview_tab_ui():
             "y_axis_select",
             "Y Axis:",
             choices=[
-                "Total Auto Points",
-                "Total Teleop Points",
+                "Auto Points",
+                "Teleop Points",
                 "Endgame Points",
                 "Total Points",
                 "Carrots",
                 "Carrot Cakes",
+                "Pantry Scoring",
+                "Oven Scoring",
             ],
         ),
         ui.input_radio_buttons(
