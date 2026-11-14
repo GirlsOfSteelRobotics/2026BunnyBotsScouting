@@ -4,7 +4,7 @@ import plotly.express as px
 from shiny import reactive, render, module
 from shiny import App, ui
 from shinywidgets import output_widget, render_widget
-from data_container import load_scouted_data
+from data_container import load_scouted_data, match_numbers, team_numbers
 
 match_df = load_scouted_data().copy()
 
@@ -62,6 +62,7 @@ LINE_COLORS = ["#97AF6E", "#C68540", "#F87828", "#F6AF7D", "#728A46"]
 
 
 @module.ui
+
 def team_pit_ui():
     teams = sorted(
         [
@@ -99,8 +100,22 @@ def team_pit_ui():
             selected="Total Points",
         ),
         ui.card(output_widget("team_breakdown_graph")),
+        ui.layout_columns(
+            ui.card(
+            ui.card_header("Number of Yellow Cards"),
+            ui.output_text("yellow_cards"),
+        ),
+            ui.card(
+                ui.card_header("Number of Red Cards"),
+                ui.output_text("red_cards"),
+            ),
+            ui.card(
+                ui.card_header("Number of No Shows"),
+                ui.output_text("no_shows"),
+            4),
+            col_widths=[6, 6]
     )
-
+    )
 
 @module.server
 def pit_overview_tab_server(input, output, session):
@@ -147,3 +162,29 @@ def pit_overview_tab_server(input, output, session):
             legend_title_text="",
         )
         return fig
+
+    @render.text
+    def yellow_cards():
+        team = str(input.team_select())
+        team_rows_to_grab = match_df["Team and Robot"] == team
+        team_data = match_df[team_rows_to_grab]
+        rows_to_grab = match_df["Yellow/Red Card"] == "Number of Yellow Cards"
+        number_yellow = len(team_data[rows_to_grab])
+        return number_yellow
+
+    @render.text
+    def red_cards():
+        team = str(input.team_select())
+        team_rows_to_grab = match_df["Team and Robot"] == team
+        team_data = match_df[team_rows_to_grab]
+        rows_to_grab = match_df["Yellow/Red Card"] == "Number of Red Cards"
+        number_red = len(team_data[rows_to_grab])
+        return number_red
+
+    @render.text
+    def no_shows():
+        team = str(input.team_select())
+        team_rows_to_grab = match_df["Team and Robot"] == team
+        team_data = match_df[team_rows_to_grab]
+        number_no_shows = int(team_data["No Show"].sum())
+        return number_no_shows
