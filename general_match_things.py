@@ -126,27 +126,28 @@ def general_match_server(input, output, session):
         return teams
 
     def stacked_colors(fig):
+        teams = get_teams_in_selected_match()
+        red_teams = teams[0:3]
         for i, trace in enumerate(fig.data):
-            teams = get_teams_in_selected_match()
-            red_teams = teams[3:6]
-            fig.data[i].marker.color = [
-                (
-                    red_stacked[i]
-                    if str(t) in [str(x) for x in red_teams]
-                    else blue_stacked[i]
-                )
-                for t in scouted_data["Team and Robot"]
+            trace.marker.color = [
+                red_stacked[i] if str(x) in red_teams else blue_stacked[i]
+                for x in trace.x
             ]
+        fig.update_xaxes(
+            categoryorder="array",
+            categoryarray=[str(t) for t in teams],
+        )
 
     def single_colors():
         teams = get_teams_in_selected_match()
-        blue_teams = teams[0:3]
-        red_teams = teams[3:6]
-        color_map = {str(team): "#4577B0" for team in blue_teams}
-        color_map.update({str(team): "#961410" for team in red_teams})
+        red_teams = teams[0:3]
+        blue_teams = teams[3:6]
+        color_map = {t: "#961410" for t in red_teams}
+        color_map.update({t: "#4577B0" for t in blue_teams})
         return dict(
             color="Team and Robot",
             color_discrete_map=color_map,
+            category_orders={"Team and Robot": teams},
         )
 
     @render_widget
