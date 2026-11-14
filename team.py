@@ -62,7 +62,6 @@ LINE_COLORS = ["#97AF6E", "#C68540", "#F87828", "#F6AF7D", "#728A46"]
 
 
 @module.ui
-
 def team_pit_ui():
     teams = sorted(
         [
@@ -102,20 +101,20 @@ def team_pit_ui():
         ui.card(output_widget("team_breakdown_graph")),
         ui.layout_columns(
             ui.card(
-            ui.card_header("Number of Yellow Cards"),
-            ui.output_text("yellow_cards"),
-        ),
+                ui.card_header("Number of Yellow Cards"),
+                ui.output_text("yellow_cards"),
+            ),
             ui.card(
                 ui.card_header("Number of Red Cards"),
                 ui.output_text("red_cards"),
             ),
             ui.card(
-                ui.card_header("Number of No Shows"),
-                ui.output_text("no_shows"),
-            4),
-            col_widths=[6, 6]
+                ui.card_header("Number of No Shows"), ui.output_text("no_shows"), 4
+            ),
+            col_widths=[6, 6],
+        ),
     )
-    )
+
 
 @module.server
 def pit_overview_tab_server(input, output, session):
