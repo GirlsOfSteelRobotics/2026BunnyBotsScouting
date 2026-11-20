@@ -34,6 +34,7 @@ def overview_tab_ui():
                 "Pantry Scoring",
                 "Oven Scoring",
             ],
+            selected="Total Points",
         ),
         ui.input_radio_buttons(
             "selection_mode",

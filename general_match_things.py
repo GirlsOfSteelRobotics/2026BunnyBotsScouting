@@ -462,7 +462,7 @@ def general_match_server(input, output, session):
             title="Number of Carrot Cakes Scored in Oven per Team during Teleop",
             **single_colors(),
         )
-        fig.update_layout(xaxis_title="Carrot Cakes", showlegend=False)
+        fig.update_layout(yaxis_title="Carrot Cakes", showlegend=False)
         return fig
 
     @render_widget
