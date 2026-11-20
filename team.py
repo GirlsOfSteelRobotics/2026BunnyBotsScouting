@@ -109,7 +109,7 @@ def team_pit_ui():
                 ui.output_text("red_cards"),
             ),
             ui.card(
-                ui.card_header("Number of No Shows"), ui.output_text("no_shows"), 4
+                ui.card_header("Number of No Shows"), ui.output_text("no_shows")
             ),
             col_widths=[6, 6],
         ),
@@ -167,7 +167,7 @@ def pit_overview_tab_server(input, output, session):
         team = str(input.team_select())
         team_rows_to_grab = match_df["Team and Robot"] == team
         team_data = match_df[team_rows_to_grab]
-        rows_to_grab = match_df["Yellow/Red Card"] == "Number of Yellow Cards"
+        rows_to_grab = match_df["Yellow/Red Card"] == "Yellow Card"
         number_yellow = len(team_data[rows_to_grab])
         return number_yellow
 
@@ -176,7 +176,7 @@ def pit_overview_tab_server(input, output, session):
         team = str(input.team_select())
         team_rows_to_grab = match_df["Team and Robot"] == team
         team_data = match_df[team_rows_to_grab]
-        rows_to_grab = match_df["Yellow/Red Card"] == "Number of Red Cards"
+        rows_to_grab = match_df["Yellow/Red Card"] == "Red Card"
         number_red = len(team_data[rows_to_grab])
         return number_red
 
