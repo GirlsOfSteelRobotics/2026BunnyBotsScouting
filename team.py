@@ -108,9 +108,7 @@ def team_pit_ui():
                 ui.card_header("Number of Red Cards"),
                 ui.output_text("red_cards"),
             ),
-            ui.card(
-                ui.card_header("Number of No Shows"), ui.output_text("no_shows")
-            ),
+            ui.card(ui.card_header("Number of No Shows"), ui.output_text("no_shows")),
             col_widths=[6, 6],
         ),
     )
