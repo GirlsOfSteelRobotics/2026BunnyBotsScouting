@@ -195,7 +195,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y="Auto Cross Kitchen Line",
-            title="Avg. Times Each Team Crossed Kitchen Line"
+            title="Avg. Times Each Team Crossed Kitchen Line",
         )
         stacked_colors(fig)
         fig.update_layout(showlegend=False)
@@ -243,7 +243,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y="autoCarrot",
             title="Number of Carrots Scored in Pantry during Auto",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrots", showlegend=False)
         return fig
@@ -257,7 +257,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["autoCarrotCake"],
             title="Number of Carrot Cakes Scored in Pantry during Auto",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrot Cakes", showlegend=False),
         return fig
@@ -272,7 +272,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotO", "autoCarrotCakeO"],
-            title="Number of Carrots and Carrot Cakes Scored in Oven per Team during Auto"
+            title="Number of Carrots and Carrot Cakes Scored in Oven per Team during Auto",
         )
         fig.update_layout(yaxis_title="Carrots and Carrots Cakes"),
         stacked_colors(fig)
@@ -287,7 +287,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["autoCarrotO"],
             title="Number of Carrots Scored in Oven per Team during Auto",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrots", showlegend=False)
         return fig
@@ -301,7 +301,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["autoCarrotO"],
-            title="Number of Carrots Scored in Oven per Team during Auto"
+            title="Number of Carrots Scored in Oven per Team during Auto",
         )
         fig.update_layout(yaxis_title="Carrots", showlegend=False)
         stacked_colors(fig)
@@ -345,7 +345,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["telCarrotL1", "telCarrotL2", "telCarrotL3"],
-            title="Number of Carrots Scored in Pantry per Team during Teleop"
+            title="Number of Carrots Scored in Pantry per Team during Teleop",
         )
         fig.update_layout(yaxis_title="Carrots per Level"),
         stacked_colors(fig)
@@ -375,7 +375,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["telCarrot"],
             title="Number of Carrots Scored in Pantry during Teleop",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrots", showlegend=False),
         return fig
@@ -389,7 +389,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["telCarrotCake"],
             title="Number of Carrot Cakes Scored in Pantry per Team during Teleop",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrot Cakes", showlegend=False),
         return fig
@@ -418,7 +418,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["telCarrotO"],
             title="Number of Carrots Scored in Oven per Team during Teleop",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrots", showlegend=False),
         return fig
@@ -447,7 +447,7 @@ def general_match_server(input, output, session):
             x="Team and Robot",
             y=["telCarrotCakeO"],
             title="Number of Carrot Cakes Scored in Oven during Teleop",
-            **box_color()
+            **box_color(),
         )
         fig.update_layout(yaxis_title="Carrot Cakes", showlegend=False),
         return fig
@@ -461,7 +461,7 @@ def general_match_server(input, output, session):
             small_team_averages,
             x="Team and Robot",
             y=["telCarrotCakeO"],
-            title="Number of Carrot Cakes Scored in Oven per Team during Teleop"
+            title="Number of Carrot Cakes Scored in Oven per Team during Teleop",
         )
         fig.update_layout(yaxis_title="Carrot Cakes", showlegend=False)
         stacked_colors(fig)
