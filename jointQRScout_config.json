@@ -1,0 +1,441 @@
+{
+  "title": "QRScout",
+  "page_title": "Harvest Havoc",
+  "delimiter": "\t",
+  "teamNumber": 350449,
+  "floatingField": {
+    "show": false,
+    "codeValue": "teamNumber"
+  },
+  "theme": {
+    "light": {
+      "background": "35 40% 98%",
+      "foreground": "20 25% 12%",
+      "card": "35 30% 97%",
+      "card_foreground": "20 25% 12%",
+      "popover": "35 30% 97%",
+      "popover_foreground": "20 25% 12%",
+      "primary": "24 88% 50%",
+      "primary_foreground": "30 100% 97%",
+      "secondary": "95 30% 82%",
+      "secondary_foreground": "100 35% 12%",
+      "muted": "35 20% 92%",
+      "muted_foreground": "25 15% 40%",
+      "accent": "100 40% 78%",
+      "accent_foreground": "100 45% 12%",
+      "destructive": "0 84.2% 60.2%",
+      "destructive_foreground": "0 0% 98%",
+      "border": "30 20% 85%",
+      "input": "30 20% 85%",
+      "ring": "24 88% 50%",
+      "chart_1": "24 88% 50%",
+      "chart_2": "100 50% 25%",
+      "chart_3": "25 45% 30%",
+      "chart_4": "43 85% 55%",
+      "chart_5": "150 45% 22%"
+    },
+    "dark": {
+      "background": "20 20% 8%",
+      "foreground": "35 30% 95%",
+      "card": "20 18% 10%",
+      "card_foreground": "35 30% 95%",
+      "popover": "20 18% 10%",
+      "popover_foreground": "35 30% 95%",
+      "primary": "24 88% 55%",
+      "primary_foreground": "30 100% 97%",
+      "secondary": "100 18% 26%",
+      "secondary_foreground": "90 30% 92%",
+      "muted": "25 15% 16%",
+      "muted_foreground": "30 15% 65%",
+      "accent": "100 22% 28%",
+      "accent_foreground": "90 30% 92%",
+      "destructive": "0 62.8% 30.6%",
+      "destructive_foreground": "0 0% 98%",
+      "border": "25 15% 26%",
+      "input": "25 15% 26%",
+      "ring": "24 88% 55%",
+      "chart_1": "24 88% 55%",
+      "chart_2": "100 50% 32%",
+      "chart_3": "30 40% 40%",
+      "chart_4": "43 85% 60%",
+      "chart_5": "150 45% 30%"
+    }
+  },
+  "sections": [
+    {
+      "name": "Prematch",
+      "fields": [
+        {
+          "title": "Scout Initials",
+          "description": "Enter the initials of the scouter.",
+          "type": "text",
+          "required": true,
+          "code": "scout",
+          "formResetBehavior": "preserve",
+          "defaultValue": "NS"
+        },
+        {
+          "title": "Match Number",
+          "description": "Enter the match number.",
+          "type": "number",
+          "required": true,
+          "code": "match",
+          "formResetBehavior": "increment",
+          "defaultValue": 1
+        },
+        {
+          "title": "Robot",
+          "description": "The robot you are scouting this match, based on driver station position.",
+          "type": "select",
+          "required": true,
+          "code": "robot",
+          "formResetBehavior": "preserve",
+          "defaultValue": "R1",
+          "choices": {
+            "R1": "Red 1",
+            "R2": "Red 2",
+            "R3": "Red 3",
+            "B1": "Blue 1",
+            "B2": "Blue 2",
+            "B3": "Blue 3"
+          }
+        },
+        {
+          "title": "Team Number",
+          "description": "The team number of the robot you're scouting.",
+          "type": "select",
+          "required": true,
+          "code": "teamNumber",
+          "formResetBehavior": "reset",
+          "defaultValue": "",
+          "choices": {
+            "321": "321",
+            "449": "449",
+            "526": "526",
+            "611": "611",
+            "686": "686",
+            "1599": "1599",
+            "2106": "2106",
+            "2377": "2377",
+            "2537": "2537",
+            "3504": "3504",
+            "4472": "4472",
+            "4575": "4575",
+            "4821": "4821",
+            "5115": "5115",
+            "5243": "5243",
+            "5338": "5338",
+            "5549": "5549",
+            "5587": "5587",
+            "8230": "8230",
+            "8726": "8726",
+            "9033": "9033",
+            "449b": "449b",
+            "2537b": "2537b",
+            "4472b": "4472b",
+            "5243b": "5243b",
+            "5338b": "5338b"
+          }
+        },
+        {
+          "title": "No Show",
+          "description": "Check if the robot did not show up for the match.",
+          "type": "boolean",
+          "required": false,
+          "code": "noShow",
+          "formResetBehavior": "reset",
+          "defaultValue": false
+        },
+        {
+          "title": "Starting Position",
+          "description": "The starting position of the robot.",
+          "type": "select",
+          "required": true,
+          "code": "startPos",
+          "formResetBehavior": "reset",
+          "defaultValue": "",
+          "choices": {
+            "AP": "Alliance Pantry",
+            "AOR": "Alliance Oven/Ramp",
+            "MDS": "Middle Driver Station",
+            "O": "Other"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auto + Intake",
+      "fields": [
+        {
+          "title": "Auto Carrots in Pantry",
+          "description": "How many carrots were scored in the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "autoPantry",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Auto Carrots in Oven",
+          "description": "How many carrots were scored in the oven.",
+          "type": "counter",
+          "required": false,
+          "code": "autoOven",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Auto Cakes Collected",
+          "description": "How many carrots were scored in the oven.",
+          "type": "counter",
+          "required": false,
+          "code": "autoCakes",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Kitchen Intake",
+          "description": "How many carrots were intaken from the kitchen.",
+          "type": "counter",
+          "required": false,
+          "code": "IK",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Neutral Zone Intake",
+          "description": "How many carrots were intaken from the neutral zone.",
+          "type": "counter",
+          "required": false,
+          "code": "INZ",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Depot Intake",
+          "description": "How many carrots were intaken from the depot.",
+          "type": "counter",
+          "required": false,
+          "code": "ID",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "name": "Carrots Scored",
+      "fields": [
+        {
+          "title": "L1 Carrots",
+          "description": "How many carrots were in L1 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L1C",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "L2 Carrots",
+          "description": "How many carrots were in L2 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L2C",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "L3 Carrots",
+          "description": "How many carrots were in L3 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L3C",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Carrots In Oven",
+          "description": "How many carrots were scored in the oven.",
+          "type": "counter",
+          "required": false,
+          "code": "CO",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Carrots Hauled",
+          "description": "How many carrots were inside their robot during endgame.",
+          "type": "counter",
+          "required": false,
+          "code": "CH",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "name": "Cakes Scored",
+      "fields": [
+        {
+          "title": "L1 Cakes",
+          "description": "How many carrot cakes were in L1 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L1CC",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "L2 Cakes",
+          "description": "How many carrot cakes were in L2 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L2CC",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "L3 Cakes",
+          "description": "How many carrot cakes were in L3 of the pantry.",
+          "type": "counter",
+          "required": false,
+          "code": "L3CC",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Cakes In Oven",
+          "description": "How many carrot cakes were scored in the oven.",
+          "type": "counter",
+          "required": false,
+          "code": "CCO",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "title": "Cakes Hauled",
+          "description": "How many carrots were inside their robot during endgame.",
+          "type": "counter",
+          "required": false,
+          "code": "CCH",
+          "formResetBehavior": "reset",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "name": "Postmatch",
+      "fields": [
+        {
+          "title": "Defensive Strategy",
+          "description": "Strategy the robot played during defense.",
+          "type": "multi-select",
+          "required": false,
+          "code": "defenseStrat",
+          "formResetBehavior": "reset",
+          "choices": {
+            "1": "Thievery",
+            "2": "Depot Defense",
+            "3": "Neutral Zone Defense",
+            "4": "Ramp Defense",
+            "5": "Robot-Robot Defense"
+          }
+        },
+        {
+          "title": "Defensive Rating",
+          "description": "Rate the robot's defensive effectiveness.",
+          "type": "range",
+          "required": false,
+          "code": "defenseEff",
+          "formResetBehavior": "reset",
+          "defaultValue": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "title": "Scoring Effectiveness",
+          "description": "Rate the robot's scoring effectiveness.",
+          "type": "range",
+          "required": false,
+          "code": "scoringEff",
+          "formResetBehavior": "reset",
+          "defaultValue": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "title": "Driver Rating",
+          "description": "How well did the driver perform.",
+          "type": "range",
+          "required": false,
+          "code": "driverRating",
+          "formResetBehavior": "reset",
+          "defaultValue": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "title": "Problems?",
+          "description": "Please indicate whether the robot died, browned out, A-stopped (stopped working during auto), E-stopped (stopped working for the entire game)., and/or got any penalties.",
+          "type": "multi-select",
+          "required": false,
+          "code": "died",
+          "formResetBehavior": "reset",
+          "choices": {
+            "1": "Died",
+            "2": "Browned Out",
+            "3": "A-Stop",
+            "4": "E-Stop",
+            "5": "Parts Fell Off",
+            "6": "Yellow Card",
+            "7": "Red Card"
+          }
+        },
+        {
+          "title": "Comments",
+          "type": "text",
+          "required": false,
+          "code": "comments",
+          "formResetBehavior": "reset",
+          "defaultValue": "",
+          "min": 0,
+          "max": 10000
+        }
+      ]
+    }
+  ]
+}
