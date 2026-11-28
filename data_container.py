@@ -4,41 +4,30 @@ import pandas as pd
 EVENT_KEY = "mock_data"
 
 SCOUTED_COLUMNS = [
-    "Scouter Initials",
-    "Match Number",
-    "Team and Robot",
-    "Starting Position",
-    "No Show",
-    "autoCarrotO",
-    "autoCarrotCakeO",
-    "autoCarrotL1",
-    "autoCarrotL2",
-    "autoCarrotL3",
-    "autoCarrotCakeL1",
-    "autoCarrotCakeL2",
-    "autoCarrotCakeL3",
-    "telCarrotO",
-    "telCarrotCakeO",
-    "telCarrotL1",
-    "telCarrotL2",
-    "telCarrotL3",
-    "telCarrotCakeL1",
-    "telCarrotCakeL2",
-    "telCarrotCakeL3",
-    "Auto Cross Kitchen Line",
-    "Auto Robot Stuck or Astop in Auto?",
-    "Harvest Haul Carrots",
-    "Harvest Haul Carrot Cakes",
-    "Defended by opponent?",
-    "Opposing Zone Actions",
-    "Park",
-    "Mechanical Issue?",
-    "Died?",
-    "Tipped/Fell Over",
-    "Scoring Effectiveness",
-    "Defense Skill",
-    "Yellow/Red Card",
-    "Comments",
+    "scout",
+    "number",
+    "robot",
+    "teamNumber",
+    "autoPantry",
+    "autoOven",
+    "autoCakes",
+    "L1C," "L2C," "L3C," "CO",
+    "L1CC",
+    "L2CC",
+    "L3CC",
+    "CCO",
+    "CH",
+    "CCH",
+    "IK",
+    "INZ",
+    "ID",
+    "noShow",
+    "startPos",
+    "defenseStrat",
+    "defenseEff",
+    "scoringEff",
+    "driverRating",
+    "died",
 ]
 
 SCRIPT_DIRECTORY = pathlib.Path(__file__).resolve().parent
@@ -51,30 +40,15 @@ def load_scouted_data():
     scouted_data["Team and Robot"] = scouted_data["Team and Robot"].astype(str)
 
     scouted_data["telCarrot"] = (
-        scouted_data["telCarrotL1"]
-        + scouted_data["telCarrotL2"]
-        + scouted_data["telCarrotL3"]
+        scouted_data["L1C"] + scouted_data["L2C"] + scouted_data["L3C"]
     )
     scouted_data["telCarrotCake"] = (
-        scouted_data["telCarrotCakeL1"]
-        + scouted_data["telCarrotCakeL2"]
-        + scouted_data["telCarrotCakeL3"]
+        scouted_data["L1CC"] + scouted_data["L2CC"] + scouted_data["L3CC"]
     )
-    scouted_data["autoCarrot"] = (
-        scouted_data["autoCarrotL1"]
-        + scouted_data["autoCarrotL2"]
-        + scouted_data["autoCarrotL3"]
-    )
-    scouted_data["autoCarrotCake"] = (
-        scouted_data["autoCarrotCakeL1"]
-        + scouted_data["autoCarrotCakeL2"]
-        + scouted_data["autoCarrotCakeL3"]
-    )
+
     scouted_data["parkPoints"] = scouted_data["Park"] * 2
-    scouted_data["Harvest Haul Carrot Points"] = scouted_data["Harvest Haul Carrots"]
-    scouted_data["Harvest Haul Carrot Cake Points"] = (
-        scouted_data["Harvest Haul Carrot Cakes"] * 3
-    )
+    scouted_data["Harvest Haul Carrot Points"] = scouted_data["CH"]
+    scouted_data["Harvest Haul Carrot Cake Points"] = scouted_data["CCH"] * 3
 
     scouted_data["Endgame Points"] = (
         scouted_data["parkPoints"]
@@ -82,67 +56,45 @@ def load_scouted_data():
         + scouted_data["Harvest Haul Carrot Cake Points"]
     )
 
-    scouted_data["totalAutoOven"] = (
-        scouted_data["autoCarrotO"] + scouted_data["autoCarrotCakeO"]
-    )
+    scouted_data["telOven"] = scouted_data["CO"] + scouted_data["CCO"]
 
-    scouted_data["totalTelOven"] = (
-        scouted_data["telCarrotO"] + scouted_data["telCarrotCakeO"]
-    )
+    scouted_data["Oven Scoring"] = scouted_data["autoOven"] + scouted_data["telOven"]
 
-    scouted_data["Oven Scoring"] = (
-        scouted_data["totalAutoOven"] + scouted_data["totalTelOven"]
-    )
-
-    scouted_data["Auto Pantry"] = (
-        scouted_data["autoCarrot"] + scouted_data["autoCarrotCake"]
-    )
-
-    scouted_data["Teleop Pantry"] = (
+    scouted_data["teleopPantry"] = (
         scouted_data["telCarrot"] + scouted_data["telCarrotCake"]
     )
 
     scouted_data["Pantry Scoring"] = (
-        scouted_data["Auto Pantry"] + scouted_data["Teleop Pantry"]
+        scouted_data["autoPantry"] + scouted_data["teleopPantry"]
     )
 
-    scouted_data["Carrots"] = (
-        scouted_data["autoCarrot"]
-        + scouted_data["autoCarrotO"]
+    scouted_data["Carrots Scored"] = (
+        scouted_data["autoPantry"]
+        + scouted_data["autoOven"]
         + scouted_data["telCarrot"]
-        + scouted_data["telCarrotO"]
-        + scouted_data["Harvest Haul Carrots"]
+        + scouted_data["CO"]
+        + scouted_data["CH"]
     )
 
-    scouted_data["Carrot Cakes"] = (
-        scouted_data["autoCarrotCake"]
-        + scouted_data["autoCarrotCakeO"]
-        + scouted_data["telCarrotCake"]
-        + scouted_data["telCarrotCakeO"]
-        + scouted_data["Harvest Haul Carrot Cakes"]
+    scouted_data["Carrot Cakes Scored"] = (
+        +scouted_data["telCarrotCake"] + scouted_data["CCO"] + scouted_data["CCH"]
     )
 
     scouted_data["Auto Points"] = (
-        scouted_data["autoCarrotO"] * 2
-        + scouted_data["autoCarrotCakeO"] * 1
-        + scouted_data["autoCarrotL1"] * 3
-        + scouted_data["autoCarrotL2"] * 4
-        + scouted_data["autoCarrotL3"] * 5
-        + scouted_data["autoCarrotCakeL1"] * 8
-        + scouted_data["autoCarrotCakeL2"] * 10
-        + scouted_data["autoCarrotCakeL3"] * 12
-        + scouted_data["Auto Cross Kitchen Line"] * 2
+        scouted_data["autoOven"] * 2
+        + scouted_data["autoPantry"] * 4
+        + scouted_data["Auto Taxi"] * 2
     )
 
     scouted_data["Teleop Points"] = (
-        scouted_data["telCarrotO"] * 2
-        + scouted_data["telCarrotCakeO"] * 1
-        + scouted_data["telCarrotL1"] * 3
-        + scouted_data["telCarrotL2"] * 4
-        + scouted_data["telCarrotL3"] * 5
-        + scouted_data["telCarrotCakeL1"] * 8
-        + scouted_data["telCarrotCakeL2"] * 10
-        + scouted_data["telCarrotCakeL3"] * 12
+        scouted_data["CO"] * 2
+        + scouted_data["CCO"] * 1
+        + scouted_data["L1C"] * 3
+        + scouted_data["L2C"] * 4
+        + scouted_data["L3C"] * 5
+        + scouted_data["L1CC"] * 8
+        + scouted_data["L2CC"] * 10
+        + scouted_data["L3CC"] * 12
     )
 
     scouted_data["Auto and Endgame Points"] = (
